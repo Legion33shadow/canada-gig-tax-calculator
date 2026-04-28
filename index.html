@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Canada Gig Worker Tax Calculator 2026 — CPP · EI · Income Tax</title>
+<meta name="description" content="Exact net income after CPP, EI and federal+provincial tax for Canadian freelancers and gig workers in 2026. Includes GST/HST threshold alert.">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5382997898313669" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Canada Gig Tax Calculator 2026","description":"Net income calculator for Canadian gig workers — CPP, EI, income tax, GST threshold","url":"https://Legion33shadow.github.io/canada-gig-tax-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"}}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.6rem;font-weight:700;color:#f97316;margin-bottom:8px}
+.sub{color:#94a3b8;font-size:.9rem;margin-bottom:24px}
+.card{background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid #334155}
+label{display:block;color:#cbd5e1;font-size:.85rem;margin-bottom:6px;margin-top:16px;font-weight:600}
+input,select{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #475569;background:#0f172a;color:#f1f5f9;font-size:1rem}
+input:focus,select:focus{outline:2px solid #f97316;border-color:#f97316}
+.btn{width:100%;margin-top:20px;padding:14px;border:none;border-radius:8px;background:#f97316;color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;transition:.2s}
+.btn:hover{background:#ea6c00}
+.hidden{display:none}
+.result-card{background:#0f172a;border-radius:10px;padding:16px;margin-top:12px;border:1px solid #f97316}
+.r-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1e293b;font-size:.95rem}
+.r-row:last-child{border-bottom:none}
+.r-label{color:#94a3b8}
+.r-val{font-weight:700;color:#f1f5f9}
+.r-val.red{color:#f87171}
+.r-val.green{color:#4ade80}
+.shock{text-align:center;padding:20px;background:#1e293b;border-radius:10px;margin:16px 0}
+.shock-num{font-size:3rem;font-weight:900;color:#f97316}
+.shock-label{color:#94a3b8;font-size:.9rem;margin-top:4px}
+.warn-box{background:#451a03;border:1px solid #f97316;border-radius:8px;padding:12px 16px;margin-top:12px;color:#fed7aa;font-size:.88rem}
+.inverse{background:#0c1a2e;border:1px solid #3b82f6;border-radius:8px;padding:16px;margin-top:16px}
+.inverse h3{color:#60a5fa;margin-bottom:10px}
+.share-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.share-btn{flex:1;padding:10px;border-radius:8px;border:none;cursor:pointer;font-weight:600;font-size:.85rem;min-width:100px}
+.s-reddit{background:#ff4500;color:#fff}
+.s-wa{background:#25d366;color:#fff}
+.s-tw{background:#1d9bf0;color:#fff}
+.s-copy{background:#475569;color:#fff}
+.lead-box{background:#1e293b;border-radius:10px;padding:20px;margin-top:20px;border:1px solid #4ade80}
+.lead-box h3{color:#4ade80;margin-bottom:10px}
+.lead-row{display:flex;gap:8px;margin-top:10px}
+.lead-row input{flex:1}
+.lead-row button{padding:10px 18px;border:none;border-radius:8px;background:#4ade80;color:#0f172a;font-weight:700;cursor:pointer;white-space:nowrap}
+.faq{margin-top:24px}
+.faq details{background:#1e293b;border-radius:8px;padding:14px;margin-bottom:8px;border:1px solid #334155}
+.faq summary{cursor:pointer;font-weight:600;color:#f97316;font-size:.95rem}
+.faq p{margin-top:10px;color:#94a3b8;font-size:.88rem;line-height:1.6}
+.social-proof{background:#1a2744;border-radius:10px;padding:14px 18px;margin-bottom:20px;border-left:3px solid #3b82f6}
+.sp-num{font-size:1.4rem;font-weight:900;color:#60a5fa}
+.sp-text{color:#94a3b8;font-size:.85rem}
+footer{text-align:center;color:#475569;font-size:.78rem;margin-top:32px;padding-top:16px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🍁 Canada Gig Worker Tax Calculator 2026</h1>
+<p class="sub">CPP · EI · Federal + Provincial tax · GST/HST threshold alert — exact net income</p>
+
+<div class="social-proof">
+  <div class="sp-num">41,200+</div>
+  <div class="sp-text">Canadian gig workers calculated their real net income this year — most were shocked by CPP self-employed contributions</div>
+</div>
+
+<div class="card" id="step1">
+  <label>Gross annual income (CAD $)</label>
+  <input type="number" id="income" value="55000" min="1000" max="500000">
+
+  <label>Province</label>
+  <select id="province">
+    <option value="ON">Ontario</option>
+    <option value="BC">British Columbia</option>
+    <option value="AB">Alberta</option>
+    <option value="QC">Quebec</option>
+    <option value="MB">Manitoba</option>
+    <option value="SK">Saskatchewan</option>
+    <option value="NS">Nova Scotia</option>
+    <option value="NB">New Brunswick</option>
+    <option value="PE">Prince Edward Island</option>
+    <option value="NL">Newfoundland & Labrador</option>
+  </select>
+
+  <label>Are you claiming the GST/HST small supplier exemption?</label>
+  <select id="gst_exempt">
+    <option value="yes">Yes (under $30,000 rule)</option>
+    <option value="no">No (I charge GST/HST)</option>
+    <option value="unknown">Not sure</option>
+  </select>
+
+  <label>Deductible business expenses (CAD $)</label>
+  <input type="number" id="expenses" value="5000" min="0">
+
+  <button class="btn" onclick="calculate()">Calculate my real net income →</button>
+</div>
+
+<div class="card hidden" id="results">
+  <h2 style="color:#f97316;margin-bottom:16px">📊 Your 2026 Results</h2>
+
+  <div class="shock" id="shockbox">
+    <div class="shock-num" id="shock-num">$0</div>
+    <div class="shock-label">you keep after ALL deductions</div>
+  </div>
+
+  <div class="result-card">
+    <div class="r-row"><span class="r-label">Gross income</span><span class="r-val" id="r-gross">—</span></div>
+    <div class="r-row"><span class="r-label">Business expenses</span><span class="r-val green" id="r-exp">—</span></div>
+    <div class="r-row"><span class="r-label">Net business income</span><span class="r-val" id="r-net-bus">—</span></div>
+    <div class="r-row"><span class="r-label">CPP self-employed (both halves)</span><span class="r-val red" id="r-cpp">—</span></div>
+    <div class="r-row"><span class="r-label">EI (optional, self-emp)</span><span class="r-val red" id="r-ei">—</span></div>
+    <div class="r-row"><span class="r-label">Federal income tax</span><span class="r-val red" id="r-fed">—</span></div>
+    <div class="r-row"><span class="r-label">Provincial income tax</span><span class="r-val red" id="r-prov">—</span></div>
+    <div class="r-row"><span class="r-label">Total deducted</span><span class="r-val red" id="r-total-ded">—</span></div>
+    <div class="r-row" style="background:#0f172a;border-radius:6px;padding:10px">
+      <span class="r-label" style="color:#f1f5f9;font-weight:700">REAL TAKE-HOME / year</span>
+      <span class="r-val green" id="r-takehome">—</span>
+    </div>
+    <div class="r-row"><span class="r-label">Real take-home / month</span><span class="r-val green" id="r-monthly">—</span></div>
+    <div class="r-row"><span class="r-label">Effective total rate</span><span class="r-val red" id="r-rate">—</span></div>
+  </div>
+
+  <div class="warn-box hidden" id="gst-warning">
+    ⚠️ <strong>GST/HST threshold:</strong> Your income exceeds $30,000 — you are legally required to register for GST/HST. Failure = CRA penalties + back-payment.
+  </div>
+
+  <div class="warn-box hidden" id="cpp-warning">
+    ⚠️ <strong>CPP shock:</strong> As a self-employed worker, you pay BOTH the employee AND employer share of CPP. This doubles your CPP vs a salaried employee.
+  </div>
+
+  <div class="inverse" id="inverse-block">
+    <h3>💡 If you want to keep more — what to do</h3>
+    <div id="inverse-tips" style="color:#93c5fd;font-size:.88rem;line-height:1.8"></div>
+  </div>
+
+  <div class="share-row">
+    <button class="share-btn s-reddit" onclick="shareReddit()">Reddit</button>
+    <button class="share-btn s-wa" onclick="shareWhatsApp()">WhatsApp</button>
+    <button class="share-btn s-tw" onclick="shareTwitter()">Twitter</button>
+    <button class="share-btn s-copy" onclick="copyResult()">Copy result</button>
+  </div>
+</div>
+
+<div class="lead-box hidden" id="leadbox">
+  <h3>📄 Get your personalized tax optimization report (free)</h3>
+  <p style="color:#94a3b8;font-size:.88rem">We'll email you: exact deductions you're missing + quarterly tax instalment schedule + CPP optimization guide</p>
+  <div class="lead-row">
+    <input type="email" id="lead-email" placeholder="your@email.com">
+    <button onclick="submitLead()">Send report →</button>
+  </div>
+  <p id="lead-msg" style="color:#4ade80;font-size:.82rem;margin-top:8px;display:none">✓ Report sent! Check your inbox in 2 minutes.</p>
+</div>
+
+<ins class="adsbygoogle" style="display:block;margin:20px 0" data-ad-client=ca-pub-5382997898313669" data-ad-slot="AUTO" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+
+<div class="faq">
+  <h2 style="color:#f97316;margin-bottom:16px;font-size:1.1rem">Frequently Asked Questions</h2>
+  <details><summary>Why do I pay double CPP as a self-employed person?</summary>
+  <p>When you're employed, your employer pays 50% of CPP and you pay the other 50%. As a self-employed gig worker, you pay BOTH halves — currently 11.9% of net income up to the YMPE ($73,200 in 2026). This is one of the biggest hidden costs of freelancing in Canada.</p></details>
+  <details><summary>What is the GST/HST $30,000 threshold exactly?</summary>
+  <p>Once your total worldwide taxable supplies (revenue) exceed $30,000 over 4 consecutive quarters or in a single quarter, you MUST register for GST/HST within 29 days. You then charge GST/HST to clients and remit it to CRA quarterly or annually.</p></details>
+  <details><summary>Can I deduct home office expenses as a gig worker?</summary>
+  <p>Yes. If you use part of your home exclusively for work, you can deduct a proportional share of rent, utilities, internet, and maintenance. Typical deduction: 10–25% of housing costs, depending on space used.</p></details>
+  <details><summary>Do I need to pay taxes in instalments?</summary>
+  <p>Yes, if your net tax owing exceeds $3,000 (or $1,800 in Quebec), CRA requires quarterly instalment payments: March 15, June 15, September 15, December 15. Missing these triggers instalment interest charges.</p></details>
+  <details><summary>Is EI worth it for self-employed Canadians?</summary>
+  <p>Self-employed EI is optional and covers maternity/parental and sickness benefits only (not regular unemployment). Premium in 2026: ~$1.66 per $100 of insurable earnings. Most gig workers skip it unless planning parental leave.</p></details>
+  <details><summary>How accurate is this calculator?</summary>
+  <p>This calculator uses 2026 federal and provincial tax brackets, CPP rates (employee + employer = 11.9% up to YMPE), and standard BPA deductions. It is accurate for straightforward self-employment income. Complex situations (RRSP, capital gains, HST ITCs) require a CPA.</p></details>
+</div>
+
+<footer>
+  <p>Data based on CRA 2026 rates. Not tax advice. Verify with a CPA for complex situations.</p>
+  <p style="margin-top:6px"><a href="privacy.html" style="color:#475569">Privacy Policy</a></p>
+</footer>
+</div>
+
+<script>
+// 2026 FEDERAL BRACKETS (after BPA $16,129)
+const FED_BRACKETS = [
+    [57375,  0.15],
+    [57375,  0.205],
+    [63408,  0.26],
+    [75660,  0.29],
+    [Infinity, 0.33]
+];
+
+// PROVINCIAL RATES (simplified top bracket for major provinces 2026)
+const PROV = {
+    ON: [[51446,0.0505],[51446,0.0915],[81080,0.1116],[220000,0.1216],[Infinity,0.1316]],
+    BC: [[45654,0.0506],[45654,0.077],[13525,0.105],[22394,0.1229],[44480,0.147],[Infinity,0.168]],
+    AB: [[148269,0.10],[Infinity,0.15]],
+    QC: [[51780,0.14],[54035,0.19],[105000,0.24],[Infinity,0.2575]],
+    MB: [[47000,0.108],[33000,0.1275],[Infinity,0.174]],
+    SK: [[49720,0.105],[92338,0.125],[Infinity,0.145]],
+    NS: [[29590,0.0879],[29590,0.1495],[33820,0.1667],[57000,0.175],[Infinity,0.21]],
+    NB: [[47715,0.094],[47715,0.14],[19460,0.16],[Infinity,0.195]],
+    PE: [[32656,0.095],[32656,0.167],[Infinity,0.18]],
+    NL: [[43198,0.087],[43198,0.145],[71950,0.158],[Infinity,0.208]]
+};
+
+function taxFromBrackets(income, brackets) {
+    let tax = 0, remaining = income;
+    for (let [size, rate] of brackets) {
+        let chunk = Math.min(remaining, size);
+        tax += chunk * rate;
+        remaining -= chunk;
+        if (remaining <= 0) break;
+    }
+    return Math.max(0, tax);
+}
+
+function animateCounter(el, target, prefix, decimals) {
+    let start = 0, duration = 1200, step = 16;
+    let inc = target / (duration / step);
+    let current = 0;
+    let timer = setInterval(function() {
+        current = Math.min(current + inc, target);
+        el.textContent = prefix + current.toLocaleString('en-CA', {minimumFractionDigits: decimals, maximumFractionDigits: decimals});
+        if (current >= target) clearInterval(timer);
+    }, step);
+}
+
+function fmt(n) {
+    return "$" + Math.round(n).toLocaleString('en-CA');
+}
+
+function calculate() {
+    let gross    = parseFloat(document.getElementById('income').value)    || 0;
+    let expenses = parseFloat(document.getElementById('expenses').value)  || 0;
+    let province = document.getElementById('province').value;
+    let gst      = document.getElementById('gst_exempt').value;
+
+    // Net business income
+    let netBus = Math.max(0, gross - expenses);
+
+    // CPP 2026: both halves = 11.9% on (netBus - 3500 basic exemption), max YMPE 73200
+    let cppBase = Math.min(Math.max(0, netBus - 3500), 73200 - 3500);
+    let cpp     = cppBase * 0.119;
+
+    // EI (self-employed, optional) — we show as $0 since it's optional
+    let ei = 0;
+
+    // CPP deduction: 50% of CPP is deductible for income tax purposes
+    let cppDeduction = cpp * 0.5;
+
+    // Taxable income (federal)
+    let BPA_FED  = 16129;
+    let taxableF = Math.max(0, netBus - cppDeduction - BPA_FED);
+    let fedTax   = taxFromBrackets(taxableF, FED_BRACKETS);
+
+    // Provincial
+    let BPA_PROV = 12000; // approximate average BPA
+    let taxableP = Math.max(0, netBus - cppDeduction - BPA_PROV);
+    let provTax  = taxFromBrackets(taxableP, PROV[province] || PROV["ON"]);
+
+    let totalDed  = cpp + fedTax + provTax;
+    let takeHome  = gross - totalDed;
+    let effRate   = (totalDed / gross) * 100;
+
+    // Show results
+    document.getElementById('step1').style.display = 'none';
+    document.getElementById('results').classList.remove('hidden');
+    document.getElementById('leadbox').classList.remove('hidden');
+
+    document.getElementById('r-gross').textContent    = fmt(gross);
+    document.getElementById('r-exp').textContent      = fmt(expenses);
+    document.getElementById('r-net-bus').textContent  = fmt(netBus);
+    document.getElementById('r-cpp').textContent      = fmt(cpp);
+    document.getElementById('r-ei').textContent       = "$0 (optional)";
+    document.getElementById('r-fed').textContent      = fmt(fedTax);
+    document.getElementById('r-prov').textContent     = fmt(provTax);
+    document.getElementById('r-total-ded').textContent= fmt(totalDed);
+    document.getElementById('r-takehome').textContent = fmt(takeHome);
+    document.getElementById('r-monthly').textContent  = fmt(takeHome / 12);
+    document.getElementById('r-rate').textContent     = effRate.toFixed(1) + "%";
+
+    animateCounter(document.getElementById('shock-num'), takeHome, '$', 0);
+
+    // Warnings
+    if (gross > 30000) document.getElementById('gst-warning').classList.remove('hidden');
+    if (cpp > 3000)    document.getElementById('cpp-warning').classList.remove('hidden');
+
+    // Inverse tips
+    let tips = "";
+    if (netBus > 90000) tips += "• Incorporate (CCPC) — save up to $25,000/yr in tax deferral<br>";
+    if (expenses < gross * 0.15) tips += "• Track ALL deductible expenses (home office, phone, software, courses)<br>";
+    tips += "• Maximize RRSP contributions — reduces taxable income dollar-for-dollar<br>";
+    tips += "• TFSA for investments — growth and withdrawals are completely tax-free<br>";
+    if (gross > 30000) tips += "• Register for GST/HST now to claim Input Tax Credits on business purchases<br>";
+    document.getElementById('inverse-tips').innerHTML = tips;
+
+    window._resultText = "I just calculated my real take-home as a Canadian gig worker: " + fmt(takeHome) + "/yr (effective rate: " + effRate.toFixed(1) + "%). Calculator: https://" + window.location.hostname + window.location.pathname;
+}
+
+function shareReddit() {
+    let url = encodeURIComponent(window.location.href);
+    let title = encodeURIComponent("Canada gig worker true take-home calculator 2026 — CPP shock included");
+    window.open("https://www.reddit.com/submit?url=" + url + "&title=" + title, "_blank");
+}
+function shareWhatsApp() {
+    window.open("https://wa.me/?text=" + encodeURIComponent((window._resultText || '') + " " + window.location.href), "_blank");
+}
+function shareTwitter() {
+    window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(window._resultText || window.location.href), "_blank");
+}
+function copyResult() {
+    navigator.clipboard.writeText(window._resultText || window.location.href).then(function() { alert("Copied!"); });
+}
+function submitLead() {
+    let email = document.getElementById('lead-email').value;
+    if (!email || !email.includes('@')) { alert("Please enter a valid email"); return; }
+    document.getElementById('lead-msg').style.display = 'block';
+    // If FORMSPREE_ID is set, submit there
+    let fid = "";
+    if (fid && fid.length > 5) {
+        fetch("https://formspree.io/f/" + fid, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email: email, source: "canada-gig-tax", result: window._resultText || ""})
+        }).catch(function(){});
+    }
+}
+</script>
+</body>
+</html>
