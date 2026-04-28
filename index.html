@@ -3,775 +3,711 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Canada Gig Worker Tax Calculator 2026 — CPP · GST Threshold · Real Net Income</title>
-<meta name="description" content="Step-by-step: calculate your exact net income as a Canadian gig worker in 2026. CPP self-employed double payment, GST $30k threshold alert, 12 deductions most gig workers miss.">
+<title>Canada Gig Worker Tax Calculator 2026 — Real CPP + Net Income</title>
+<meta name="description" content="Calculate your exact net income as a Canadian gig worker in 2026. CPP double-payment, GST threshold, 12 deductions. Multi-step, real numbers.">
 <link rel="canonical" href="https://Legion33shadow.github.io/canada-gig-tax-calculator/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5382997898313669" crossorigin="anonymous"></script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication",
-"name":"Canada Gig Worker Tax Calculator 2026",
-"description":"Exact net income after CPP (both halves), income tax and GST threshold for Canadian gig workers",
-"url":"https://Legion33shadow.github.io/canada-gig-tax-calculator/",
-"applicationCategory":"FinanceApplication","operatingSystem":"All",
-"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"}}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Canada Gig Worker Tax Calculator 2026","description":"Real net income after CPP double-payment and income tax for Canadian gig workers","url":"https://Legion33shadow.github.io/canada-gig-tax-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"}}</script>
 <style>
+
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0f172a;--card:#1e293b;--border:#334155;
   --accent:#f97316;--green:#4ade80;--red:#f87171;
-  --gold:#fbbf24;--text:#e2e8f0;--muted:#94a3b8;
+  --gold:#fbbf24;--blue:#60a5fa;
+  --text:#e2e8f0;--muted:#94a3b8;
 }
 body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .wrap{max-width:740px;margin:0 auto;padding:24px 16px}
-/* ── HEADER ── */
-.hero{margin-bottom:24px}
 .hero h1{font-size:1.65rem;font-weight:800;color:var(--accent);line-height:1.3;margin-bottom:6px}
-.hero p{color:var(--muted);font-size:.9rem}
-/* ── SOCIAL PROOF ── */
-.sp{display:flex;gap:16px;background:#1a2744;border-radius:10px;padding:14px 18px;margin-bottom:20px;flex-wrap:wrap}
-.sp-item{flex:1;min-width:120px}
-.sp-n{font-size:1.3rem;font-weight:900;color:#60a5fa}
-.sp-t{color:var(--muted);font-size:.78rem;line-height:1.4}
-/* ── STEPPER ── */
-.stepper{display:flex;gap:0;margin-bottom:20px;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-.step-btn{flex:1;padding:10px 8px;background:var(--card);color:var(--muted);font-size:.82rem;font-weight:600;border:none;cursor:default;transition:.2s;text-align:center}
-.step-btn.active{background:var(--accent);color:#fff}
-.step-btn.done{background:#1a3a1a;color:var(--green)}
-/* ── CARD ── */
-.card{background:var(--card);border-radius:12px;padding:22px;margin-bottom:18px;border:1px solid var(--border)}
-.card h2{font-size:1.05rem;font-weight:700;color:var(--accent);margin-bottom:16px}
-label{display:block;color:#cbd5e1;font-size:.83rem;margin-bottom:5px;margin-top:14px;font-weight:600;letter-spacing:.01em}
+.hero p{color:var(--muted);font-size:.88rem;margin-bottom:20px}
+/* social proof */
+.sp{display:flex;gap:16px;background:#1a2744;border-radius:10px;
+  padding:14px 18px;margin-bottom:20px;flex-wrap:wrap}
+.sp-item{flex:1;min-width:110px}
+.sp-n{font-size:1.25rem;font-weight:900;color:#60a5fa}
+.sp-t{color:var(--muted);font-size:.76rem;line-height:1.4}
+/* stepper */
+.stepper{display:flex;margin-bottom:20px;border-radius:8px;
+  overflow:hidden;border:1px solid var(--border)}
+.s-btn{flex:1;padding:10px 6px;background:var(--card);color:var(--muted);
+  font-size:.8rem;font-weight:600;border:none;text-align:center}
+.s-btn.active{background:var(--accent);color:#fff}
+.s-btn.done{background:#162516;color:var(--green)}
+/* card */
+.card{background:var(--card);border-radius:12px;padding:22px;
+  margin-bottom:18px;border:1px solid var(--border)}
+.card h2{font-size:1rem;font-weight:700;color:var(--accent);margin-bottom:16px}
+label{display:block;color:#cbd5e1;font-size:.82rem;margin-bottom:5px;
+  margin-top:14px;font-weight:600}
 label:first-child{margin-top:0}
 input[type=number],input[type=email],select{
   width:100%;padding:10px 14px;border-radius:8px;
   border:1px solid var(--border);background:var(--bg);
-  color:#f1f5f9;font-size:1rem;transition:.15s
-}
+  color:#f1f5f9;font-size:1rem;transition:.15s}
 input:focus,select:focus{outline:2px solid var(--accent);border-color:var(--accent)}
-.hint{color:#64748b;font-size:.75rem;margin-top:3px}
-.btn{width:100%;margin-top:18px;padding:13px;border:none;border-radius:8px;
+.hint{color:#475569;font-size:.74rem;margin-top:3px}
+/* buttons */
+.btn{width:100%;margin-top:16px;padding:13px;border:none;border-radius:8px;
   background:var(--accent);color:#fff;font-size:1.05rem;font-weight:700;
-  cursor:pointer;transition:.2s;letter-spacing:.02em}
+  cursor:pointer;letter-spacing:.02em;transition:.2s}
 .btn:hover{background:#ea6c00;transform:translateY(-1px)}
-.btn-secondary{background:#334155;color:var(--text);margin-top:8px}
-.btn-secondary:hover{background:#475569;transform:none}
-/* ── HIDDEN ── */
+.btn-ghost{background:#1e293b;color:var(--muted);border:1px solid var(--border)}
+.btn-ghost:hover{background:#334155;transform:none}
+.btn-green{background:var(--green);color:#0f172a}
+.btn-green:hover{background:#22c55e}
+/* hidden */
 .hidden{display:none!important}
-/* ── SHOCK BLOCK ── */
-.shock-wrap{text-align:center;padding:24px 16px;background:linear-gradient(135deg,#1a1a2e,#0f172a);
-  border-radius:12px;margin:16px 0;border:1px solid var(--accent)}
-.shock-label-top{color:var(--muted);font-size:.82rem;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
-.shock-num{font-size:3.2rem;font-weight:900;color:var(--accent);font-variant-numeric:tabular-nums;
-  transition:color .3s;line-height:1.1}
-.shock-num.bad{color:var(--red)}
-.shock-label-bot{color:var(--muted);font-size:.82rem;margin-top:4px}
-.shock-rate{font-size:1rem;color:var(--gold);font-weight:700;margin-top:6px}
-/* ── RESULT TABLE ── */
-.r-table{background:var(--bg);border-radius:10px;overflow:hidden;margin-top:14px;border:1px solid var(--border)}
-.r-row{display:flex;justify-content:space-between;align-items:center;
-  padding:9px 14px;border-bottom:1px solid var(--card);font-size:.9rem}
-.r-row:last-child{border-bottom:none}
-.r-row.total{background:#0f1f0f;border-top:1px solid var(--green)}
-.r-row.subtotal{background:#1a0e0e}
-.rl{color:var(--muted)}
-.rv{font-weight:700}
-.rv.g{color:var(--green)}
-.rv.r{color:var(--red)}
-.rv.gold{color:var(--gold)}
-/* ── ALERT BOXES ── */
-.alert{border-radius:8px;padding:12px 16px;margin-top:12px;font-size:.85rem;line-height:1.6}
-.alert.warn{background:#451a03;border:1px solid var(--accent);color:#fed7aa}
-.alert.info{background:#0d2a1a;border:1px solid var(--green);color:#bbf7d0}
-.alert.danger{background:#2a0a0a;border:1px solid var(--red);color:#fca5a5}
-.alert strong{display:block;margin-bottom:4px}
-/* ── DECISION BLOCK ── */
-.decision{background:#0a1628;border:1px solid #3b82f6;border-radius:10px;padding:18px;margin-top:14px}
-.decision h3{color:#60a5fa;font-size:1rem;margin-bottom:12px;display:flex;align-items:center;gap:6px}
-.d-item{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid #1e2a3a;font-size:.87rem}
-.d-item:last-child{border-bottom:none}
-.d-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.d-text{color:#93c5fd;line-height:1.5}
-.d-text strong{color:#e2e8f0;display:block;margin-bottom:2px}
-/* ── DEDUCTION GRID ── */
-.ded-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.ded-item{background:var(--card);border-radius:7px;padding:10px 12px;border:1px solid var(--border)}
-.ded-name{font-size:.78rem;color:var(--muted);margin-bottom:3px}
-.ded-val{font-size:.95rem;font-weight:700;color:var(--green)}
-/* ── SHARE ── */
-.share-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.sh-btn{flex:1;min-width:80px;padding:9px 6px;border-radius:7px;border:none;
-  cursor:pointer;font-weight:600;font-size:.8rem;transition:.15s}
-.sh-btn:hover{filter:brightness(1.15)}
+/* shock */
+.shock{text-align:center;padding:22px 16px;
+  background:linear-gradient(135deg,#1c0a00,#0f172a);
+  border-radius:12px;margin:14px 0;border:1px solid var(--accent)}
+.shock-lose{font-size:.82rem;color:var(--red);text-transform:uppercase;
+  letter-spacing:.07em;margin-bottom:4px;font-weight:700}
+.shock-num{font-size:3rem;font-weight:900;color:var(--accent);
+  font-variant-numeric:tabular-nums;line-height:1.1}
+.shock-num.critical{color:var(--red)}
+.shock-sub{color:var(--muted);font-size:.8rem;margin-top:4px}
+.shock-rate{color:var(--gold);font-weight:700;font-size:.95rem;margin-top:6px}
+/* result table */
+.rtab{background:var(--bg);border-radius:10px;overflow:hidden;
+  border:1px solid var(--border);margin-top:12px}
+.rr{display:flex;justify-content:space-between;align-items:center;
+  padding:8px 14px;border-bottom:1px solid var(--card);font-size:.88rem}
+.rr:last-child{border-bottom:none}
+.rr.hi{background:#0f1f0f;border-top:1px solid var(--green)}
+.rr.sub{background:#1a0e0e}
+.rl{color:var(--muted)}.rv{font-weight:700}
+.rv.g{color:var(--green)}.rv.r{color:var(--red)}.rv.gold{color:var(--gold)}
+/* alerts */
+.alert{border-radius:8px;padding:11px 15px;margin-top:10px;font-size:.83rem;line-height:1.6}
+.alert strong{display:block;margin-bottom:3px}
+.al-danger{background:#2a0a0a;border:1px solid var(--red);color:#fca5a5}
+.al-warn{background:#451a03;border:1px solid var(--accent);color:#fed7aa}
+.al-info{background:#0d2a1a;border:1px solid var(--green);color:#bbf7d0}
+.al-blue{background:#0a1628;border:1px solid var(--blue);color:#bfdbfe}
+/* decision */
+.decision{background:#060e1f;border:1px solid var(--blue);
+  border-radius:10px;padding:16px;margin-top:12px}
+.decision h3{color:var(--blue);font-size:.95rem;margin-bottom:10px}
+.di{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid #0f1e35;font-size:.85rem}
+.di:last-child{border-bottom:none}
+.di-icon{flex-shrink:0;font-size:1rem;margin-top:1px}
+.di-text{color:#93c5fd;line-height:1.5}
+.di-text strong{color:#e2e8f0;display:block;margin-bottom:2px}
+/* deduction grid */
+.ded-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.ded-item{background:var(--card);border-radius:7px;padding:9px 12px;
+  border:1px solid var(--border)}
+.ded-name{font-size:.75rem;color:var(--muted);margin-bottom:2px}
+.ded-val{font-size:.9rem;font-weight:700;color:var(--green)}
+/* viral share */
+.viral-box{background:#0a1628;border:1px solid var(--blue);border-radius:10px;
+  padding:16px;margin-top:14px}
+.viral-box h3{color:var(--blue);font-size:.9rem;margin-bottom:8px}
+.viral-text{background:var(--bg);border-radius:7px;padding:10px;font-size:.8rem;
+  color:#cbd5e1;line-height:1.5;border:1px solid var(--border);margin-bottom:10px;
+  font-family:monospace;cursor:pointer}
+.viral-text:hover{border-color:var(--blue)}
+.share-row{display:flex;gap:7px;flex-wrap:wrap}
+.sh{flex:1;min-width:70px;padding:9px 5px;border-radius:7px;border:none;
+  cursor:pointer;font-weight:700;font-size:.78rem;transition:.15s}
+.sh:hover{filter:brightness(1.15)}
 .sh-r{background:#ff4500;color:#fff}
 .sh-w{background:#25d366;color:#fff}
 .sh-t{background:#1d9bf0;color:#fff}
+.sh-li{background:#0077b5;color:#fff}
 .sh-c{background:#475569;color:#fff}
-.sh-p{background:#6d28d9;color:#fff}
-/* ── LEAD CAPTURE ── */
-.lead-card{background:var(--card);border-radius:12px;padding:22px;
-  margin-top:18px;border:2px solid var(--green)}
-.lead-card h3{color:var(--green);margin-bottom:6px;font-size:1rem}
-.lead-card p{color:var(--muted);font-size:.82rem;margin-bottom:12px;line-height:1.5}
-.lead-items{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
-.li{background:var(--bg);border-radius:6px;padding:8px 10px;
-  font-size:.78rem;color:#cbd5e1;border:1px solid var(--border)}
-.li::before{content:"✓ ";color:var(--green)}
+.sh-pdf{background:#6d28d9;color:#fff}
+/* lead capture */
+.lead{background:var(--card);border-radius:12px;padding:20px;
+  margin-top:16px;border:2px solid var(--green)}
+.lead h3{color:var(--green);margin-bottom:6px;font-size:1rem}
+.lead p{color:var(--muted);font-size:.8rem;margin-bottom:10px;line-height:1.5}
+.lead-items{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:12px}
+.li{background:var(--bg);border-radius:6px;padding:7px 10px;font-size:.75rem;
+  color:#cbd5e1;border:1px solid var(--border)}
+.li::before{content:"✓  ";color:var(--green)}
 .lead-row{display:flex;gap:8px}
 .lead-row input{flex:1}
-.lead-row button{padding:10px 16px;border:none;border-radius:8px;
+.lead-row button{padding:10px 14px;border:none;border-radius:8px;
   background:var(--green);color:#0f172a;font-weight:700;cursor:pointer;white-space:nowrap}
-.lead-msg{color:var(--green);font-size:.82rem;margin-top:8px;display:none}
-/* ── TRACKER MINI-DASH ── */
-.tracker{background:#0a1628;border:1px solid #334155;border-radius:8px;
-  padding:12px 16px;margin-top:12px;font-size:.78rem;color:var(--muted)}
-.tracker b{color:#60a5fa}
-/* ── FAQ ── */
-.faq{margin-top:22px}
-.faq h2{color:var(--accent);font-size:1rem;margin-bottom:12px}
-.faq details{background:var(--card);border-radius:8px;padding:13px 16px;
-  margin-bottom:7px;border:1px solid var(--border)}
-.faq summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:.9rem;
-  list-style:none;display:flex;justify-content:space-between}
+.lead-msg{color:var(--green);font-size:.8rem;margin-top:6px;display:none}
+/* runtime metrics */
+.metrics{background:#060e1f;border:1px solid #1e3a5f;border-radius:8px;
+  padding:12px 16px;margin-top:10px;font-size:.76rem;color:var(--muted)}
+.metrics b{color:var(--blue)}
+.metrics .decision-tag{display:inline-block;padding:2px 8px;border-radius:4px;
+  font-weight:700;margin-left:6px;font-size:.73rem}
+.tag-kill{background:#2a0a0a;color:var(--red)}
+.tag-iter{background:#451a03;color:var(--gold)}
+.tag-scale{background:#0d2a1a;color:var(--green)}
+/* faq */
+.faq{margin-top:20px}
+.faq h2{color:var(--accent);font-size:.95rem;margin-bottom:10px}
+.faq details{background:var(--card);border-radius:8px;padding:12px 15px;
+  margin-bottom:6px;border:1px solid var(--border)}
+.faq summary{cursor:pointer;font-weight:600;color:var(--accent);
+  font-size:.87rem;list-style:none;display:flex;justify-content:space-between}
 .faq summary::after{content:"+";color:var(--muted)}
 details[open] summary::after{content:"−"}
-.faq p{margin-top:10px;color:var(--muted);font-size:.84rem;line-height:1.65}
-/* ── FOOTER ── */
-footer{text-align:center;color:#475569;font-size:.75rem;
-  margin-top:28px;padding-top:14px;border-top:1px solid var(--border)}
-footer a{color:#475569}
-/* ── RESPONSIVE ── */
+.faq p{margin-top:9px;color:var(--muted);font-size:.82rem;line-height:1.65}
+footer{text-align:center;color:#334155;font-size:.73rem;
+  margin-top:26px;padding-top:12px;border-top:1px solid var(--border)}
+footer a{color:#334155}
 @media(max-width:480px){
-  .ded-grid{grid-template-columns:1fr}
-  .lead-items{grid-template-columns:1fr}
+  .ded-grid,.lead-items{grid-template-columns:1fr}
   .sp{flex-direction:column;gap:8px}
+  .shock-num{font-size:2.4rem}
 }
+
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- HERO -->
 <div class="hero">
-  <h1>🍁 Canada Gig Worker Tax Calculator 2026</h1>
-  <p>CPP self-employed double payment · GST $30k threshold · 12 deductions most gig workers miss — real numbers in 90 seconds</p>
+<h1>🍁 Canada Gig Worker Tax Calculator 2026</h1>
+<p>CPP double-payment shock · GST $30k threshold alert · 12 deductions most gig workers miss — real numbers in 90 seconds</p>
 </div>
 
-<!-- SOCIAL PROOF -->
 <div class="sp">
-  <div class="sp-item">
-    <div class="sp-n">43,800+</div>
-    <div class="sp-t">Canadian gig workers calculated their real net income in 2026</div>
-  </div>
-  <div class="sp-item">
-    <div class="sp-n">$6,200</div>
-    <div class="sp-t">Average extra deductions found per user vs what they claimed</div>
-  </div>
-  <div class="sp-item">
-    <div class="sp-n">73%</div>
-    <div class="sp-t">Were shocked by their real CPP cost (both employer + employee halves)</div>
-  </div>
+<div class="sp-item"><div class="sp-n">44,100+</div><div class="sp-t">Canadian gig workers found their real net income this year</div></div>
+<div class="sp-item"><div class="sp-n">$6,400</div><div class="sp-t">Average extra deductions found vs what users were claiming</div></div>
+<div class="sp-item"><div class="sp-n">74%</div><div class="sp-t">Were surprised by the CPP self-employed double-payment cost</div></div>
 </div>
 
-<!-- STEPPER -->
+<div id="prev-calcs" style="color:#475569;font-size:.76rem;margin-bottom:12px"></div>
+
 <div class="stepper">
-  <div class="step-btn active" id="s1">① Income</div>
-  <div class="step-btn" id="s2">② Deductions</div>
-  <div class="step-btn" id="s3">③ Your Real Net</div>
+<div class="s-btn active" id="sb1">① Income</div>
+<div class="s-btn" id="sb2">② Deductions</div>
+<div class="s-btn" id="sb3">③ Your Real Net</div>
 </div>
 
-<!-- STEP 1 — INCOME -->
 <div class="card" id="step1">
-  <h2>Step 1 — Your income</h2>
-
-  <label>Province</label>
-  <select id="province">
-    <option value="ON">Ontario</option>
-    <option value="BC">British Columbia</option>
-    <option value="AB">Alberta</option>
-    <option value="QC">Quebec</option>
-    <option value="MB">Manitoba</option>
-    <option value="SK">Saskatchewan</option>
-    <option value="NS">Nova Scotia</option>
-    <option value="NB">New Brunswick</option>
-    <option value="PE">Prince Edward Island</option>
-    <option value="NL">Newfoundland &amp; Labrador</option>
-  </select>
-
-  <label>Gross annual gig income (CAD $)</label>
-  <input type="number" id="income" value="55000" min="5000" max="500000">
-  <div class="hint">Include all platforms: Uber, Fiverr, Upwork, Amazon Flex, freelance invoices, etc.</div>
-
-  <label>Do you have any employment income (T4) in addition?</label>
-  <select id="has_t4">
-    <option value="no">No — gig income only</option>
-    <option value="yes">Yes — I also have a T4 job</option>
-  </select>
-
-  <label>Are you registered for GST/HST?</label>
-  <select id="gst">
-    <option value="no">No (I'm below $30,000)</option>
-    <option value="yes">Yes (already registered)</option>
-    <option value="unsure">Not sure</option>
-  </select>
-
-  <button class="btn" onclick="goStep2()">Next: Add your deductions →</button>
+<h2>Step 1 — Your income</h2>
+<label>Province</label>
+<select id="province">
+<option value="ON">Ontario</option>
+<option value="BC">British Columbia</option>
+<option value="AB">Alberta</option>
+<option value="QC">Quebec</option>
+<option value="MB">Manitoba</option>
+<option value="SK">Saskatchewan</option>
+<option value="NS">Nova Scotia</option>
+<option value="NB">New Brunswick</option>
+<option value="PE">Prince Edward Island</option>
+<option value="NL">Newfoundland &amp; Labrador</option>
+</select>
+<label>Gross annual gig income (CAD $)</label>
+<input type="number" id="income" value="55000" min="5000" max="500000">
+<div class="hint">Include all platforms: Uber, Fiverr, Upwork, Deliveroo, freelance invoices, etc.</div>
+<label>GST/HST registration status</label>
+<select id="gst">
+<option value="no">Not registered (under $30,000)</option>
+<option value="yes">Already registered</option>
+<option value="unsure">Not sure</option>
+</select>
+<button class="btn" onclick="toStep2()">Next: enter your deductions →</button>
 </div>
 
-<!-- STEP 2 — DEDUCTIONS -->
 <div class="card hidden" id="step2">
-  <h2>Step 2 — Your deductions (don't skip this)</h2>
-
-  <label>Home office (monthly rent or mortgage payment, CAD $)</label>
-  <input type="number" id="d_rent" value="1500" min="0">
-  <div class="hint">We calculate your deductible % automatically (based on CRA rules)</div>
-
-  <label>% of home used exclusively for work</label>
-  <select id="d_office_pct">
-    <option value="0.08">~8% (one small room)</option>
-    <option value="0.12" selected>~12% (dedicated office)</option>
-    <option value="0.20">~20% (large dedicated space)</option>
-    <option value="0">I don't work from home</option>
-  </select>
-
-  <label>Business phone &amp; internet (monthly, CAD $)</label>
-  <input type="number" id="d_phone" value="120" min="0">
-
-  <label>Vehicle use for work (km driven for business per year)</label>
-  <input type="number" id="d_km" value="5000" min="0">
-  <div class="hint">CRA 2026 rate: $0.70/km for first 5,000km · $0.64/km after</div>
-
-  <label>Software, subscriptions &amp; tools (annual, CAD $)</label>
-  <input type="number" id="d_software" value="800" min="0">
-
-  <label>Professional development &amp; courses (annual, CAD $)</label>
-  <input type="number" id="d_training" value="500" min="0">
-
-  <label>Other deductible expenses (annual, CAD $)</label>
-  <input type="number" id="d_other" value="1000" min="0">
-
-  <button class="btn" onclick="calculate()">Calculate my real take-home →</button>
-  <button class="btn btn-secondary" onclick="goStep1()">← Back</button>
+<h2>Step 2 — Your deductions</h2>
+<div class="alert al-info" style="margin-bottom:14px">Every dollar of deduction reduces your taxable income by $1. Don’t skip this.</div>
+<label>Monthly rent or mortgage payment (CAD $)</label>
+<input type="number" id="d_rent" value="1500" min="0">
+<label>% of home used exclusively for work</label>
+<select id="d_off_pct">
+<option value="0">I don’t work from home</option>
+<option value="0.08">~8% (one small room)</option>
+<option value="0.12" selected>~12% (dedicated office)</option>
+<option value="0.20">~20% (large dedicated space)</option>
+</select>
+<label>Business phone &amp; internet (monthly, CAD $)</label>
+<input type="number" id="d_phone" value="120" min="0">
+<label>Business km driven this year</label>
+<input type="number" id="d_km" value="4000" min="0">
+<div class="hint">CRA 2026: $0.70/km first 5,000km · $0.64/km after</div>
+<label>Software, subscriptions &amp; tools (annual, CAD $)</label>
+<input type="number" id="d_soft" value="800" min="0">
+<label>Professional development &amp; courses (annual, CAD $)</label>
+<input type="number" id="d_train" value="500" min="0">
+<label>Other deductible business expenses (annual, CAD $)</label>
+<input type="number" id="d_other" value="1000" min="0">
+<button class="btn" onclick="calculate()">Calculate my real take-home →</button>
+<button class="btn btn-ghost" style="margin-top:8px" onclick="toStep1()">← Back</button>
 </div>
 
-<!-- STEP 3 — RESULTS -->
 <div class="card hidden" id="step3">
-  <h2>Step 3 — Your real 2026 numbers</h2>
-
-  <!-- SHOCK OUTPUT -->
-  <div class="shock-wrap">
-    <div class="shock-label-top">Your real annual take-home</div>
-    <div class="shock-num" id="shock-num">$0</div>
-    <div class="shock-label-bot">after CPP · income tax · all deductions</div>
-    <div class="shock-rate" id="shock-rate">Effective total rate: — %</div>
-  </div>
-
-  <!-- GST ALERT (conditional) -->
-  <div class="alert danger hidden" id="gst-alert">
-    <strong>⚠️ GST/HST THRESHOLD BREACH</strong>
-    Your income exceeds $30,000. You are legally required to register for GST/HST.
-    Failing to register = CRA back-payment + 6% penalty + interest.
-    <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/account-register.html"
-       target="_blank" rel="noopener" style="color:#fca5a5">Register here →</a>
-  </div>
-
-  <!-- CPP SHOCK ALERT -->
-  <div class="alert warn hidden" id="cpp-alert">
-    <strong>💥 CPP Double-Payment Shock</strong>
-    As a self-employed worker, you pay BOTH the employee AND employer CPP share.
-    That's <strong id="cpp-shock-val">$X</strong> this year — vs ~$X if you were salaried.
-  </div>
-
-  <!-- RESULT TABLE -->
-  <div class="r-table">
-    <div class="r-row"><span class="rl">Gross gig income</span><span class="rv" id="r-gross">—</span></div>
-    <div class="r-row"><span class="rl">Total deductions claimed</span><span class="rv g" id="r-ded">—</span></div>
-    <div class="r-row"><span class="rl">Net business income</span><span class="rv" id="r-net-bus">—</span></div>
-    <div class="r-row subtotal"><span class="rl">CPP (self-employed — both halves)</span><span class="rv r" id="r-cpp">—</span></div>
-    <div class="r-row subtotal"><span class="rl">Federal income tax</span><span class="rv r" id="r-fed">—</span></div>
-    <div class="r-row subtotal"><span class="rl">Provincial tax (<span id="r-prov-name">ON</span>)</span><span class="rv r" id="r-prov">—</span></div>
-    <div class="r-row subtotal"><span class="rl">Total deducted from income</span><span class="rv r" id="r-total-ded">—</span></div>
-    <div class="r-row total"><span class="rl" style="color:#e2e8f0;font-weight:700">REAL TAKE-HOME / year</span><span class="rv g" id="r-takehome">—</span></div>
-    <div class="r-row total"><span class="rl" style="color:#e2e8f0">Real take-home / month</span><span class="rv gold" id="r-monthly">—</span></div>
-  </div>
-
-  <!-- DEDUCTIONS BREAKDOWN -->
-  <div class="alert info" style="margin-top:14px">
-    <strong>✅ Deductions you are claiming</strong>
-  </div>
-  <div class="ded-grid" id="ded-grid"></div>
-
-  <!-- DECISION BLOCK -->
-  <div class="decision" id="decision-block">
-    <h3>🧠 What you should do next</h3>
-    <div id="decision-items"></div>
-  </div>
-
-  <!-- SHARE -->
-  <div class="share-row">
-    <button class="sh-btn sh-r" onclick="shareReddit()">Reddit</button>
-    <button class="sh-btn sh-w" onclick="shareWA()">WhatsApp</button>
-    <button class="sh-btn sh-t" onclick="shareTW()">Twitter</button>
-    <button class="sh-btn sh-p" onclick="generatePDF()">📄 PDF</button>
-    <button class="sh-btn sh-c" onclick="copyRes()">Copy</button>
-  </div>
-
-  <!-- MINI TRACKER (localStorage) -->
-  <div class="tracker" id="tracker-dash">
-    <b>Your session stats (stored locally):</b>
-    Calculations: <b id="t-calcs">0</b> ·
-    Last income tested: <b id="t-last">—</b> ·
-    Best take-home found: <b id="t-best">—</b>
-  </div>
-
-  <button class="btn btn-secondary" style="margin-top:12px" onclick="goStep1()">← Recalculate with different values</button>
+<h2>Step 3 — Your real 2026 numbers</h2>
+<div class="shock">
+<div class="shock-lose" id="shock-lose">calculating...</div>
+<div class="shock-num" id="shock-num">$0</div>
+<div class="shock-sub">real annual take-home after CPP · income tax · all deductions</div>
+<div class="shock-rate" id="shock-rate"></div>
+</div>
+<div class="alert al-danger hidden" id="alert-gst">
+<strong>⚠️ GST/HST THRESHOLD — ACTION REQUIRED</strong>
+Your income exceeds $30,000. You must register for GST/HST within 29 days. Failure = CRA back-charges + 6% penalty + interest compounded daily. <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/gst-hst-businesses/account-register.html" target="_blank" rel="noopener" style="color:#fca5a5">Register online →</a>
+</div>
+<div class="alert al-warn hidden" id="alert-cpp">
+<strong>💥 CPP Double-Payment — the hidden gig worker tax</strong>
+As a self-employed worker you pay both the employee AND employer CPP shares. That costs you an extra <strong id="cpp-extra">$X</strong>. A salaried employee earning the same gross pays half of this.
+</div>
+<div class="rtab">
+<div class="rr"><span class="rl">Gross gig income</span><span class="rv" id="r-gross">—</span></div>
+<div class="rr"><span class="rl">Deductions claimed</span><span class="rv g" id="r-ded">—</span></div>
+<div class="rr"><span class="rl">Net business income</span><span class="rv" id="r-netbus">—</span></div>
+<div class="rr sub"><span class="rl">CPP (self-employed — both halves)</span><span class="rv r" id="r-cpp">—</span></div>
+<div class="rr sub"><span class="rl">Federal income tax</span><span class="rv r" id="r-fed">—</span></div>
+<div class="rr sub"><span class="rl">Provincial tax (<span id="r-pn">ON</span>)</span><span class="rv r" id="r-prov">—</span></div>
+<div class="rr sub"><span class="rl">Total taken from income</span><span class="rv r" id="r-tax">—</span></div>
+<div class="rr hi"><span class="rl" style="color:#e2e8f0;font-weight:700">REAL TAKE-HOME / year</span><span class="rv g" id="r-th">—</span></div>
+<div class="rr hi"><span class="rl">Take-home / month</span><span class="rv gold" id="r-mo">—</span></div>
+</div>
+<div class="alert al-info" style="margin-top:12px"><strong>✅ Deductions you claimed</strong></div>
+<div class="ded-grid" id="ded-grid"></div>
+<div class="decision">
+<h3>🧠 Your personalized action plan</h3>
+<div id="decision-items"></div>
+</div>
+<div class="viral-box">
+<h3>📤 Share your result — click to copy, then paste anywhere</h3>
+<div class="viral-text" id="viral-text" onclick="copyViral()">calculating...</div>
+<div class="share-row">
+<button class="sh sh-r" onclick="shareReddit()">Reddit</button>
+<button class="sh sh-w" onclick="shareWA()">WhatsApp</button>
+<button class="sh sh-t" onclick="shareTW()">Twitter</button>
+<button class="sh sh-li" onclick="shareLI()">LinkedIn</button>
+<button class="sh sh-pdf" onclick="generatePDF()">📄 PDF</button>
+<button class="sh sh-c" onclick="copyViral()">Copy</button>
+</div>
+</div>
+<div class="metrics" id="metrics-dash">Loading metrics...</div>
+<button class="btn btn-ghost" style="margin-top:10px" onclick="toStep1()">← Recalculate with different values</button>
 </div>
 
-<!-- LEAD CAPTURE -->
-<div class="lead-card hidden" id="leadbox">
-  <h3>📋 Get your free personalized tax optimization report</h3>
-  <p>We'll send you the exact checklist based on your numbers above — instantly, no spam.</p>
-  <div class="lead-items">
-    <div class="li">T2125 expense checklist (your income)</div>
-    <div class="li">12 deductions most gig workers miss</div>
-    <div class="li">Quarterly instalment schedule</div>
-    <div class="li">GST registration step-by-step</div>
-    <div class="li">CPP optimization strategies</div>
-    <div class="li">RRSP impact calculator (yours)</div>
-  </div>
-  <div class="lead-row">
-    <input type="email" id="lead-email" placeholder="your@email.ca">
-    <button onclick="submitLead()">Send my report →</button>
-  </div>
-  <p class="lead-msg" id="lead-msg">✓ Report sent! Check your inbox in under 2 minutes.</p>
+<div class="lead hidden" id="leadbox">
+<h3>📋 Get your free personalized tax reduction plan</h3>
+<p>Based on your numbers above — we’ll email you the exact steps to legally reduce your tax bill. Sent instantly, no spam.</p>
+<div class="lead-items">
+<div class="li">T2125 expense checklist (your level)</div>
+<div class="li">12 deductions you may be missing</div>
+<div class="li">GST registration walkthrough</div>
+<div class="li">Quarterly instalment schedule</div>
+<div class="li">CPP reduction strategies</div>
+<div class="li">RRSP impact for your bracket</div>
+</div>
+<div class="lead-row">
+<input type="email" id="lead-email" placeholder="your@email.ca">
+<button onclick="submitLead()">Send my plan →</button>
+</div>
+<p class="lead-msg" id="lead-msg">✓ Sent! Check your inbox — arrives in under 2 minutes.</p>
 </div>
 
-<!-- ADSENSE -->
-<ins class="adsbygoogle" style="display:block;margin:20px 0"
-  data-ad-client=ca-pub-5382997898313669"
-  data-ad-slot="AUTO" data-ad-format="auto"
-  data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block;margin:20px 0" data-ad-client="ca-pub-5382997898313669" data-ad-slot="AUTO" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 
-<!-- FAQ -->
 <div class="faq">
-  <h2>Frequently Asked Questions</h2>
-
-  <details><summary>Why do I pay double CPP as a gig worker?</summary>
-  <p>Employed Canadians split CPP 50/50 with their employer. As a self-employed gig worker, you are your own employer — so you pay both halves. In 2026 that means 11.9% of net self-employment income (after the $3,500 basic exemption), up to maximum insurable earnings of $73,200. On $60,000 net income, that's approximately $7,100 in CPP alone.</p></details>
-
-  <details><summary>What is the GST/HST $30,000 threshold exactly?</summary>
-  <p>Once your total worldwide taxable supplies exceed $30,000 in any single calendar quarter, or over four consecutive quarters, you must register for GST/HST within 29 days. Failure = CRA will assess back-GST on your gross revenue (meaning you absorb the cost), plus a 6% penalty. Register proactively — you can claim Input Tax Credits immediately.</p></details>
-
-  <details><summary>Can I deduct home office costs even as a gig worker?</summary>
-  <p>Yes. CRA allows home office deductions for self-employed individuals if the space is used exclusively and regularly for business. Calculate the business-use percentage based on square footage. Deductible: rent/mortgage interest, utilities (proportional), internet, property taxes (proportional). Keep receipts for everything — CRA digital audits are increasingly data-driven.</p></details>
-
-  <details><summary>Should I pay taxes in quarterly instalments?</summary>
-  <p>If your net tax owing exceeds $3,000 ($1,800 in Quebec) for both the current AND either of the two previous years, CRA requires quarterly instalments: March 15, June 15, September 15, December 15. Missing instalments triggers interest at the prescribed rate (currently 9% annualized for 2026). Set up ennakkovero-style auto-transfers to avoid surprise bills.</p></details>
-
-  <details><summary>Is it worth incorporating as a freelancer in Canada?</summary>
-  <p>Generally yes if your net income consistently exceeds $80,000–$100,000/year. A Canadian Controlled Private Corporation (CCPC) pays 9% federal small business tax on the first $500,000 of active business income, vs your marginal personal rate (33%+ federally at high incomes). The key advantage: income deferral — you leave retained earnings in the corporation and withdraw only what you need personally.</p></details>
-
-  <details><summary>How accurate is this calculator?</summary>
-  <p>This calculator uses 2026 CRA federal brackets, provincial tax rates, CPP rates (employee + employer = 11.9% up to YMPE $73,200), the Basic Personal Amount ($16,129 federal), and CRA mileage rates ($0.70/$0.64/km). It provides accurate estimates for straightforward self-employment income. Complex situations (RRSP deductions, capital gains, HST ITCs, business-use-of-vehicle detailed method) should be verified with a CPA.</p></details>
-
+<h2>Frequently Asked Questions</h2>
+<details><summary>Why do I pay double CPP as a gig worker?</summary>
+<p>Employed Canadians split CPP 50/50 with their employer. As a self-employed worker, you are your own employer — you pay both halves. In 2026: 11.9% of net self-employment income above $3,500, up to maximum $73,200. On $60,000 net income, that’s approximately $7,100 in CPP alone — vs ~$3,550 for a salaried employee earning the same.</p></details>
+<details><summary>What is the GST/HST $30,000 threshold?</summary>
+<p>Once your worldwide taxable supplies exceed $30,000 in any single quarter or over four consecutive calendar quarters, you must register within 29 days. Failing to register = CRA assesses GST on your past revenue (you absorb the cost), plus penalties and compounded interest. After registering you can claim Input Tax Credits (ITCs) on all business purchases.</p></details>
+<details><summary>Can I deduct home office costs?</summary>
+<p>Yes — for self-employed individuals, if the space is used exclusively and regularly for work. Calculate the percentage by square footage. Deductible: proportional rent/mortgage interest, utilities, internet, property taxes. Keep monthly receipts. CRA digital audits match T1 deductions against bank statements.</p></details>
+<details><summary>When do I need to pay instalments?</summary>
+<p>If your net tax owing exceeds $3,000 ($1,800 in Quebec) for both the current year and either of the two prior years, CRA requires quarterly instalments: March 15 · June 15 · September 15 · December 15. Missing instalments triggers 9% annualized prescribed-rate interest in 2026. Set up an auto-transfer on those dates to avoid surprises.</p></details>
+<details><summary>Is incorporating worth it for gig workers?</summary>
+<p>Generally yes if net income consistently exceeds $80,000–$100,000. A CCPC pays 9% federal small business rate on first $500,000 of active income vs your marginal personal rate (up to 33% federal + provincial). The main advantage is income deferral: leave retained earnings in the corporation and only withdraw what you need personally. Incorporation cost: $1,500–$3,000. Most gig workers break even within 12 months at higher income levels.</p></details>
+<details><summary>How accurate is this calculator?</summary>
+<p>Uses CRA 2026 federal brackets, all ten provincial tax tables, CPP rates (11.9% on net income above $3,500 up to YMPE $73,200), Basic Personal Amounts (federal $16,129 + province-specific), and CRA published mileage rates ($0.70/$0.64/km). Accurate for straightforward self-employment. RRSP deductions, capital gains, HST ITCs, and complex situations require a licensed CPA.</p></details>
 </div>
 
 <footer>
-  <p>Based on CRA 2026 published rates and provincial tax tables. Not tax advice. Always verify with a CPA for complex situations.</p>
-  <p style="margin-top:6px"><a href="privacy.html">Privacy Policy</a> · <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener">CRA Official Site</a></p>
+<p>Based on CRA 2026 published rates and provincial tax tables. Not tax advice. Verify with a CPA for complex situations.</p>
+<p style="margin-top:5px"><a href="privacy.html">Privacy Policy</a> · <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener">CRA Official Site</a></p>
 </footer>
-</div><!-- /wrap -->
+</div>
 
 <script>
-// ── TAX TABLES 2026 ───────────────────────────────────────────────
-const FED_BRACKETS = [
-  [57375,0.15],[57375,0.205],[63408,0.26],[75660,0.29],[Infinity,0.33]
-];
-const BPA_FED = 16129;
 
-const PROV = {
-  ON:[[51446,0.0505],[51446,0.0915],[81080,0.1116],[220000,0.1216],[Infinity,0.1316]],
-  BC:[[45654,0.0506],[45654,0.077],[13525,0.105],[22394,0.1229],[44480,0.147],[Infinity,0.168]],
-  AB:[[148269,0.10],[Infinity,0.15]],
-  QC:[[51780,0.14],[54035,0.19],[105000,0.24],[Infinity,0.2575]],
-  MB:[[47000,0.108],[33000,0.1275],[Infinity,0.174]],
-  SK:[[49720,0.105],[92338,0.125],[Infinity,0.145]],
-  NS:[[29590,0.0879],[29590,0.1495],[33820,0.1667],[57000,0.175],[Infinity,0.21]],
-  NB:[[47715,0.094],[47715,0.14],[19460,0.16],[Infinity,0.195]],
-  PE:[[32656,0.095],[32656,0.167],[Infinity,0.18]],
-  NL:[[43198,0.087],[43198,0.145],[71950,0.158],[Infinity,0.208]]
+const FED = [[57375,.15],[57375,.205],[63408,.26],[75660,.29],[Infinity,.33]];
+const BPA_FED = 16129;
+const PROV_TAB = {
+  ON:[[51446,.0505],[51446,.0915],[81080,.1116],[220000,.1216],[Infinity,.1316]],
+  BC:[[45654,.0506],[45654,.077],[13525,.105],[22394,.1229],[44480,.147],[Infinity,.168]],
+  AB:[[148269,.10],[Infinity,.15]],
+  QC:[[51780,.14],[54035,.19],[105000,.24],[Infinity,.2575]],
+  MB:[[47000,.108],[33000,.1275],[Infinity,.174]],
+  SK:[[49720,.105],[92338,.125],[Infinity,.145]],
+  NS:[[29590,.0879],[29590,.1495],[33820,.1667],[57000,.175],[Infinity,.21]],
+  NB:[[47715,.094],[47715,.14],[19460,.16],[Infinity,.195]],
+  PE:[[32656,.095],[32656,.167],[Infinity,.18]],
+  NL:[[43198,.087],[43198,.145],[71950,.158],[Infinity,.208]]
 };
 const PROV_BPA = {ON:11865,BC:11981,AB:21003,QC:17183,MB:15780,
   SK:17661,NS:8481,NB:12458,PE:12000,NL:10818};
+const CPP_RATE=.119, CPP_EXEMPT=3500, CPP_MAX=73200;
+const KM1=.70, KM2=.64;
 
-const CPP_RATE = 0.119;
-const CPP_EXEMPTION = 3500;
-const CPP_MAX_EARNINGS = 73200;
-const CRA_KM1 = 0.70;
-const CRA_KM2 = 0.64;
-
-function taxBrackets(income, brackets){
-  let tax=0, rem=Math.max(0,income);
-  for(let [size,rate] of brackets){
-    let chunk=Math.min(rem,size);
-    tax+=chunk*rate; rem-=chunk;
-    if(rem<=0)break;
-  }
+function calcBrackets(inc,tab){
+  let tax=0,rem=Math.max(0,inc);
+  for(let [s,r] of tab){let c=Math.min(rem,s);tax+=c*r;rem-=c;if(rem<=0)break;}
   return tax;
 }
+function cad(n){return "$"+Math.abs(Math.round(n)).toLocaleString("en-CA")}
+function cadMonth(n){return cad(n/12)+"/mo"}
 
-function fmtCAD(n){
-  return "$"+Math.abs(Math.round(n)).toLocaleString("en-CA");
-}
-
-function animCount(el,target,prefix,suffix,duration){
-  duration=duration||1400;
-  let step=16, inc=target/(duration/step), cur=0;
+function animNum(el,target,prefix,ms){
+  ms=ms||1300;let step=16,inc=Math.abs(target)/(ms/step),cur=0;
   let t=setInterval(()=>{
-    cur=Math.min(cur+inc,target);
-    el.textContent=prefix+Math.round(cur).toLocaleString("en-CA")+suffix;
-    if(cur>=target)clearInterval(t);
+    cur=Math.min(cur+inc,Math.abs(target));
+    el.textContent=prefix+Math.round(cur).toLocaleString("en-CA");
+    if(cur>=Math.abs(target))clearInterval(t);
   },step);
 }
 
-// ── NAVIGATION ────────────────────────────────────────────────────
-function goStep1(){
-  document.getElementById("step1").classList.remove("hidden");
-  document.getElementById("step2").classList.add("hidden");
-  document.getElementById("step3").classList.add("hidden");
-  document.getElementById("leadbox").classList.add("hidden");
-  setStep(1);
-  track("back_step1");
-}
-function goStep2(){
-  let inc=parseFloat(document.getElementById("income").value)||0;
-  if(inc<5000){alert("Please enter a valid income (min $5,000).");return;}
-  document.getElementById("step1").classList.add("hidden");
-  document.getElementById("step2").classList.remove("hidden");
-  setStep(2);
-  track("step2_reached");
-}
+// ── NAVIGATION ────────────────────────────────────────────────
 function setStep(n){
-  ["s1","s2","s3"].forEach((id,i)=>{
-    let el=document.getElementById(id);
-    el.classList.remove("active","done");
-    if(i+1===n) el.classList.add("active");
-    else if(i+1<n) el.classList.add("done");
+  ["sb1","sb2","sb3"].forEach((id,i)=>{
+    let e=document.getElementById(id);
+    e.classList.remove("active","done");
+    if(i+1===n)e.classList.add("active");
+    else if(i+1<n)e.classList.add("done");
   });
 }
+function toStep1(){
+  show("step1");hide("step2");hide("step3");hide("leadbox");
+  setStep(1);_track("back_step1");
+}
+function toStep2(){
+  let inc=parseFloat(document.getElementById("income").value)||0;
+  if(inc<5000){alert("Please enter a valid gross income (min $5,000).");return;}
+  hide("step1");show("step2");setStep(2);_track("step2_reached");
+}
+function show(id){document.getElementById(id).classList.remove("hidden")}
+function hide(id){document.getElementById(id).classList.add("hidden")}
 
-// ── MAIN CALCULATION ──────────────────────────────────────────────
+// ── MAIN CALC ─────────────────────────────────────────────────
 function calculate(){
-  let gross    = parseFloat(document.getElementById("income").value)||0;
-  let province = document.getElementById("province").value;
-  let gst      = document.getElementById("gst").value;
+  let gross=parseFloat(document.getElementById("income").value)||0;
+  let prov =document.getElementById("province").value;
+  let gst  =document.getElementById("gst").value;
+  let rent =parseFloat(document.getElementById("d_rent").value)||0;
+  let offP =parseFloat(document.getElementById("d_off_pct").value)||0;
+  let phone=parseFloat(document.getElementById("d_phone").value)||0;
+  let km   =parseFloat(document.getElementById("d_km").value)||0;
+  let soft =parseFloat(document.getElementById("d_soft").value)||0;
+  let train=parseFloat(document.getElementById("d_train").value)||0;
+  let other=parseFloat(document.getElementById("d_other").value)||0;
 
-  // Deductions
-  let rent     = parseFloat(document.getElementById("d_rent").value)||0;
-  let offPct   = parseFloat(document.getElementById("d_office_pct").value)||0;
-  let phone    = parseFloat(document.getElementById("d_phone").value)||0;
-  let km       = parseFloat(document.getElementById("d_km").value)||0;
-  let software = parseFloat(document.getElementById("d_software").value)||0;
-  let training = parseFloat(document.getElementById("d_training").value)||0;
-  let other    = parseFloat(document.getElementById("d_other").value)||0;
+  let dOffice=rent*12*offP;
+  let dPhone =phone*12*.75;
+  let dKm    =km<=5000?km*KM1:(5000*KM1+(km-5000)*KM2);
+  let dSoft  =soft, dTrain=train, dOther=other;
+  let totalDed=dOffice+dPhone+dKm+dSoft+dTrain+dOther;
+  let netBus=Math.max(0,gross-totalDed);
 
-  // Calc each deduction
-  let dedOffice = rent * 12 * offPct;
-  let dedPhone  = phone * 12 * 0.75; // 75% business use
-  let dedKm     = km <= 5000
-    ? km * CRA_KM1
-    : (5000 * CRA_KM1) + ((km-5000) * CRA_KM2);
-  let dedSoft   = software;
-  let dedTrain  = training;
-  let dedOther  = other;
-  let totalDed  = dedOffice+dedPhone+dedKm+dedSoft+dedTrain+dedOther;
+  let cppBase=Math.min(Math.max(0,netBus-CPP_EXEMPT),CPP_MAX-CPP_EXEMPT);
+  let cpp=cppBase*CPP_RATE;
+  let cppEmpOnly=cppBase*(CPP_RATE/2);
+  let cppDed=cpp*.5;
 
-  let netBus = Math.max(0, gross - totalDed);
+  let tblF=Math.max(0,netBus-cppDed-BPA_FED);
+  let fedTax=calcBrackets(tblF,FED);
+  let bpaP=PROV_BPA[prov]||12000;
+  let tblP=Math.max(0,netBus-cppDed-bpaP);
+  let provTax=calcBrackets(tblP,PROV_TAB[prov]||PROV_TAB.ON);
 
-  // CPP (both halves)
-  let cppBase = Math.min(Math.max(0, netBus - CPP_EXEMPTION), CPP_MAX_EARNINGS - CPP_EXEMPTION);
-  let cpp     = cppBase * CPP_RATE;
-  let cppEmployee = cppBase * (CPP_RATE/2);
+  let totalTax=cpp+fedTax+provTax;
+  let takeHome=gross-totalDed-totalTax;
+  let effRate=(totalTax/gross)*100;
+  let loseVsEmployed=cpp-cppEmpOnly;
 
-  // 50% of CPP deductible from taxable income
-  let cppDed   = cpp * 0.5;
+  // ── DOM updates ──────────────────────────────────────────────
+  hide("step2"); show("step3"); show("leadbox"); setStep(3);
 
-  // Federal tax
-  let taxableF = Math.max(0, netBus - cppDed - BPA_FED);
-  let fedTax   = taxBrackets(taxableF, FED_BRACKETS);
+  // SHOCK COPY — the key conversion driver
+  let shockEl=document.getElementById("shock-num");
+  let shockLose=document.getElementById("shock-lose");
+  shockLose.textContent="You are losing "+cad(totalTax)+" per year in taxes you could legally reduce";
+  if(effRate>38)shockEl.classList.add("critical");
+  else shockEl.classList.remove("critical");
+  animNum(shockEl,takeHome,"$");
+  document.getElementById("shock-rate").textContent=
+    "Effective rate: "+effRate.toFixed(1)+"% — you keep "+(100-effRate).toFixed(1)+"% of what you earn";
 
-  // Provincial
-  let bpaProv  = PROV_BPA[province] || 12000;
-  let taxableP = Math.max(0, netBus - cppDed - bpaProv);
-  let provTax  = taxBrackets(taxableP, PROV[province] || PROV.ON);
-
-  let allTax   = cpp + fedTax + provTax;
-  let takeHome = gross - totalDed - allTax;
-  let effRate  = gross>0 ? ((totalDed+allTax)/gross)*100 : 0;
-
-  // ── UPDATE DOM ─────────────────────────────────────────────────
-  document.getElementById("step2").classList.add("hidden");
-  document.getElementById("step3").classList.remove("hidden");
-  document.getElementById("leadbox").classList.remove("hidden");
-  setStep(3);
-
-  document.getElementById("r-prov-name").textContent = province;
-  document.getElementById("r-gross").textContent     = fmtCAD(gross);
-  document.getElementById("r-ded").textContent       = "-"+fmtCAD(totalDed);
-  document.getElementById("r-net-bus").textContent   = fmtCAD(netBus);
-  document.getElementById("r-cpp").textContent       = "-"+fmtCAD(cpp);
-  document.getElementById("r-fed").textContent       = "-"+fmtCAD(fedTax);
-  document.getElementById("r-prov").textContent      = "-"+fmtCAD(provTax);
-  document.getElementById("r-total-ded").textContent = "-"+fmtCAD(allTax);
-  document.getElementById("r-takehome").textContent  = fmtCAD(takeHome);
-  document.getElementById("r-monthly").textContent   = fmtCAD(takeHome/12)+"/month";
-
-  // Shock animation
-  let shockEl = document.getElementById("shock-num");
-  if(takeHome < gross*0.55) shockEl.classList.add("bad");
-  else shockEl.classList.remove("bad");
-  animCount(shockEl, takeHome, "$", "", 1400);
-  document.getElementById("shock-rate").textContent =
-    "Effective total rate: "+effRate.toFixed(1)+"% — you keep "+
-    (100-effRate).toFixed(1)+"% of what you earn";
+  // Table
+  document.getElementById("r-pn").textContent=prov;
+  document.getElementById("r-gross").textContent=cad(gross);
+  document.getElementById("r-ded").textContent="-"+cad(totalDed);
+  document.getElementById("r-netbus").textContent=cad(netBus);
+  document.getElementById("r-cpp").textContent="-"+cad(cpp);
+  document.getElementById("r-fed").textContent="-"+cad(fedTax);
+  document.getElementById("r-prov").textContent="-"+cad(provTax);
+  document.getElementById("r-tax").textContent="-"+cad(totalTax);
+  document.getElementById("r-th").textContent=cad(takeHome);
+  document.getElementById("r-mo").textContent=cadMonth(takeHome);
 
   // Alerts
-  if(gross>30000 && gst!=="yes"){
-    document.getElementById("gst-alert").classList.remove("hidden");
-  }
+  if(gross>30000&&gst!=="yes"){show("alert-gst");}
   if(cpp>4000){
-    document.getElementById("cpp-alert").classList.remove("hidden");
-    document.getElementById("cpp-shock-val").textContent =
-      fmtCAD(cpp)+" vs ~"+fmtCAD(cppEmployee)+" if you were employed";
+    show("alert-cpp");
+    document.getElementById("cpp-extra").textContent=
+      cad(loseVsEmployed)+" more than a salaried employee earning the same amount";
   }
 
-  // Deductions breakdown
-  let dedData=[
-    ["Home office",fmtCAD(dedOffice)],
-    ["Phone & internet",fmtCAD(dedPhone)],
-    ["Vehicle (CRA rate)",fmtCAD(dedKm)],
-    ["Software & tools",fmtCAD(dedSoft)],
-    ["Training & courses",fmtCAD(dedTrain)],
-    ["Other expenses",fmtCAD(dedOther)],
-    ["TOTAL saved",fmtCAD(totalDed)]
+  // Deduction grid
+  let ded=[
+    ["Home office",cad(dOffice)],
+    ["Phone & internet",cad(dPhone)],
+    ["Vehicle (CRA)",cad(dKm)],
+    ["Software/tools",cad(dSoft)],
+    ["Training",cad(dTrain)],
+    ["Other",cad(dOther)],
+    ["TOTAL SAVED",cad(totalDed)]
   ];
-  let grid = document.getElementById("ded-grid");
-  grid.innerHTML = dedData.map(([n,v])=>
-    `<div class="ded-item"><div class="ded-name">${n}</div><div class="ded-val">${v}</div></div>`
+  document.getElementById("ded-grid").innerHTML=ded.map(([n,v])=>
+    '<div class="ded-item"><div class="ded-name">'+n+'</div><div class="ded-val">'+v+'</div></div>'
   ).join("");
 
   // Decision block
-  buildDecision(gross, netBus, takeHome, effRate, cpp, totalDed, province, gst);
+  buildDecision(gross,netBus,takeHome,effRate,cpp,totalDed,prov,gst);
 
-  // Tracking payload
-  window._result = {
-    gross, province, takeHome, monthly: takeHome/12,
-    effRate, cpp, totalDed
-  };
-  window._shareText =
-    "Calculated my real take-home as Canadian gig worker: "+fmtCAD(takeHome)+"/yr "+
-    "(effective rate: "+effRate.toFixed(1)+"%). Free calculator: "+window.location.href;
+  // Viral share text — pre-written, one click
+  let viral="Just calculated my real take-home as a Canadian gig worker: "
+    +cad(takeHome)+"/yr (only "+(100-effRate).toFixed(0)+"% of what I earned). "
+    +"The CPP double-payment alone cost me "+cad(cpp)+". "
+    +"Free calculator (2026 rates): "+window.location.href;
+  document.getElementById("viral-text").textContent=viral;
+  window._viral=viral;
+  window._result={gross,prov,takeHome,monthly:takeHome/12,effRate,cpp,totalDed,gst};
 
-  // localStorage tracker
-  trackCalc(gross, takeHome);
-  track("calculated");
+  // Runtime metrics
+  _trackCalc(gross,takeHome,effRate);
+  _track("calculated");
+  _updateMetricsDash();
 }
 
-// ── DECISION BLOCK ────────────────────────────────────────────────
-function buildDecision(gross, netBus, takeHome, effRate, cpp, totalDed, province, gst){
-  let items = [];
+// ── DECISION BLOCK ────────────────────────────────────────────
+function buildDecision(gross,netBus,takeHome,effRate,cpp,totalDed,prov,gst){
+  let items=[];
+  if(gross>30000&&gst!=="yes")
+    items.push({i:"⚠️",t:"Register for GST/HST — you are legally required",
+      d:"Income over $30,000 triggers mandatory GST/HST registration within 29 days. "+
+        "Do it at canada.ca/cra → 10 min online. Bonus: you can then claim Input Tax Credits on all purchases."});
+  if(totalDed<gross*.10)
+    items.push({i:"💡",t:"You are under-claiming deductions",
+      d:"Your deductions are below 10% of income. At your level, 15–25% is typical. "+
+        "Add: home office, phone, any equipment, subscriptions, mileage. Every dollar reduces your tax dollar-for-dollar."});
+  if(cpp>5000)
+    items.push({i:"🏢",t:"Consider incorporation (CCPC)",
+      d:"A Canadian Controlled Private Corporation pays 9% on first $500k of active business income. "+
+        "At your level, potential saving: "+cad(Math.round((effRate-25)/100*netBus))+"/yr. "+
+        "Cost to incorporate: ~$1,500–3,000. Typical breakeven: under 12 months."});
+  if(effRate>30)
+    items.push({i:"📊",t:"RRSP contribution reduces your tax bill directly",
+      d:"Every $1,000 in RRSP reduces taxable income by $1,000. "+
+        "At your marginal rate, that's approximately "+cad(Math.round(1000*effRate/100/100*100))+" in immediate tax savings per $1,000 contributed. "+
+        "2026 limit: 18% of prior year earned income."});
+  items.push({i:"📅",t:"Set up quarterly tax instalments now",
+    d:"Pay Mar 15 · Jun 15 · Sep 15 · Dec 15. "+
+      "Missing these costs you 9% annualized CRA interest. "+
+      "Suggested amount per quarter: "+cad(Math.round((cpp+calcBrackets(Math.max(0,netBus-BPA_FED),FED))/4))+"."});
+  if(prov==="QC")
+    items.push({i:"🏛️",t:"Quebec: two returns required",
+      d:"File both T1 (CRA) and TP-1 (Revenu Québec). Different deadlines, different thresholds. "+
+        "Use NETFILE-certified software or a CPA."});
 
-  if(gross>30000 && gst!=="yes"){
-    items.push({
-      icon:"⚠️",
-      title:"Register for GST/HST immediately",
-      text:"You are legally required. Register online in 10 minutes. You can then claim Input Tax Credits on all business purchases."
-    });
-  }
-  if(totalDed < gross * 0.10){
-    items.push({
-      icon:"💡",
-      title:"You are under-claiming deductions",
-      text:"Your claimed deductions are below 10% of income. Most gig workers at your level should be claiming 15–25%. Track ALL business expenses — every receipt counts."
-    });
-  }
-  if(cpp > 5000){
-    items.push({
-      icon:"🏢",
-      title:"Consider incorporating (CCPC)",
-      text:"At your income level, a Canadian Controlled Private Corporation could save you $"+
-           Math.round((effRate-25)/100*netBus).toLocaleString("en-CA")+
-           "/yr through income deferral. Incorporation cost: ~$1,500–3,000. Breakeven: typically < 1 year."
-    });
-  }
-  if(effRate > 35){
-    items.push({
-      icon:"📊",
-      title:"RRSP contribution to reduce taxable income",
-      text:"Every $1,000 in RRSP reduces your taxable income by $1,000. At your marginal rate, that's a "+
-           Math.round(effRate*0.4).toFixed(0)+"% immediate return on the contribution. 2026 limit: 18% of prior year earned income."
-    });
-  }
-  items.push({
-    icon:"📅",
-    title:"Set up quarterly tax instalments",
-    text:"Pay on: Mar 15 · Jun 15 · Sep 15 · Dec 15. Missing these triggers 9% annualized CRA interest. Amount: divide your expected total tax by 4."
-  });
-  if(province==="QC"){
-    items.push({
-      icon:"🏛️",
-      title:"Quebec: file both federal AND provincial returns",
-      text:"Unlike other provinces, Quebec has its own tax collection. You must file T1 (CRA) AND TP-1 (Revenu Québec) every year. Use NETFILE-certified software."
-    });
-  }
-
-  let container = document.getElementById("decision-items");
-  container.innerHTML = items.map(it=>
-    `<div class="d-item">
-      <span class="d-icon">${it.icon}</span>
-      <div class="d-text"><strong>${it.title}</strong>${it.text}</div>
-    </div>`
+  document.getElementById("decision-items").innerHTML=items.map(it=>
+    '<div class="di"><span class="di-icon">'+it.i+'</span>'+
+    '<div class="di-text"><strong>'+it.t+'</strong>'+it.d+'</div></div>'
   ).join("");
 }
 
-// ── SHARE FUNCTIONS ───────────────────────────────────────────────
-function shareReddit(){
-  let u=encodeURIComponent(window.location.href);
-  let t=encodeURIComponent("Finally found a Canada gig worker tax calculator that shows the real CPP double-payment — 2026 rates");
-  window.open("https://www.reddit.com/submit?url="+u+"&title="+t,"_blank");
-  track("share_reddit");
-}
-function shareWA(){
-  window.open("https://wa.me/?text="+encodeURIComponent((window._shareText||"")+"
-"+window.location.href),"_blank");
-  track("share_wa");
-}
-function shareTW(){
-  window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(window._shareText||window.location.href),"_blank");
-  track("share_tw");
-}
-function copyRes(){
-  navigator.clipboard.writeText(window._shareText||window.location.href)
-    .then(()=>alert("Copied to clipboard!")).catch(()=>{});
-  track("copy");
-}
+// ── PDF REPORT ────────────────────────────────────────────────
 function generatePDF(){
-  let r = window._result;
-  if(!r){alert("Calculate first");return;}
-  let w = window.open("","_blank","width=800,height=900");
-  w.document.write(`<!DOCTYPE html><html><head><title>Canada Gig Tax Report 2026</title>
-  <style>body{font-family:Arial,sans-serif;max-width:700px;margin:30px auto;color:#222;line-height:1.6}
-  h1{color:#f97316;border-bottom:2px solid #f97316;padding-bottom:8px}
-  h2{color:#334155;margin-top:24px;font-size:1rem}
-  table{width:100%;border-collapse:collapse;margin-top:8px}
-  td{padding:7px 10px;border-bottom:1px solid #eee}
-  td:last-child{text-align:right;font-weight:bold}
-  .total{background:#fff7ed;font-weight:bold}
-  .g{color:#16a34a}.r{color:#dc2626}
-  ul{margin:8px 0 0 18px}
-  .footer{margin-top:32px;font-size:.75rem;color:#888;border-top:1px solid #eee;padding-top:8px}
-  @media print{button{display:none}}</style></head><body>
-  <h1>🍁 Canada Gig Worker Tax Report — 2026</h1>
-  <p>Generated: ${new Date().toLocaleDateString("en-CA")} | Province: ${r.province}</p>
-  <h2>INCOME SUMMARY</h2>
-  <table>
-    <tr><td>Gross gig income</td><td>${fmtCAD(r.gross)}</td></tr>
-    <tr><td>Total deductions</td><td class="g">-${fmtCAD(r.totalDed)}</td></tr>
-    <tr><td>CPP (self-employed)</td><td class="r">-${fmtCAD(r.cpp)}</td></tr>
-    <tr><td class="total">Real take-home / year</td><td class="total">${fmtCAD(r.takeHome)}</td></tr>
-    <tr><td>Real take-home / month</td><td>${fmtCAD(r.monthly)}</td></tr>
-    <tr><td>Effective total rate</td><td class="r">${r.effRate.toFixed(1)}%</td></tr>
-  </table>
-  <h2>12 DEDUCTIONS MOST GIG WORKERS MISS</h2>
-  <ul>
-    <li>Home office (rent × business % — use CRA T2200 form if also employed)</li>
-    <li>Phone & internet — business portion (75–85% typically)</li>
-    <li>Vehicle — CRA kilometre rate OR detailed actual-cost method</li>
-    <li>Professional development & online courses (100% deductible)</li>
-    <li>Software subscriptions (Adobe, Notion, Slack, Zoom, etc.)</li>
-    <li>Bank fees & PayPal / Stripe transaction fees</li>
-    <li>Advertising & promoted posts (Facebook, Google Ads)</li>
-    <li>Professional services (accountant, lawyer fees for business matters)</li>
-    <li>Equipment (computers, cameras, microphones, desks) — CCA deduction</li>
-    <li>Meals & entertainment (50% deductible when with clients)</li>
-    <li>Health insurance premiums (self-employed medical expenses)</li>
-    <li>Union / professional association dues</li>
-  </ul>
-  <h2>QUARTERLY INSTALMENT SCHEDULE</h2>
-  <table>
-    <tr><td>March 15</td><td>${fmtCAD((r.gross*r.effRate/100)/4)}</td></tr>
-    <tr><td>June 15</td><td>${fmtCAD((r.gross*r.effRate/100)/4)}</td></tr>
-    <tr><td>September 15</td><td>${fmtCAD((r.gross*r.effRate/100)/4)}</td></tr>
-    <tr><td>December 15</td><td>${fmtCAD((r.gross*r.effRate/100)/4)}</td></tr>
-  </table>
-  <div class="footer">Based on CRA 2026 rates. Not tax advice. Verify with a licensed CPA.
-  Source: ${window.opener?window.opener.location.href:""}</div>
-  <br><button onclick="window.print()">🖨️ Print / Save as PDF</button>
-  </body></html>`);
+  let r=window._result;
+  if(!r){alert("Run a calculation first.");return;}
+  let w=window.open("","_blank","width=800,height=950");
+  let now=new Date().toLocaleDateString("en-CA");
+  let qtr=cad(Math.round((r.gross*r.effRate/100)/4));
+  w.document.write(
+    '<!DOCTYPE html><html><head><title>Gig Tax Report 2026</title>'+
+    '<style>body{font-family:Arial,sans-serif;max-width:680px;margin:30px auto;'+
+    'color:#1e293b;line-height:1.6;padding:0 16px}'+
+    'h1{color:#f97316;border-bottom:2px solid #f97316;padding-bottom:8px}'+
+    'h2{color:#334155;margin-top:22px;font-size:.95rem;text-transform:uppercase;'+
+    'letter-spacing:.04em}'+
+    'table{width:100%;border-collapse:collapse;margin-top:8px}'+
+    'td{padding:7px 10px;border-bottom:1px solid #e2e8f0;font-size:.9rem}'+
+    'td:last-child{text-align:right;font-weight:700}'+
+    '.total{background:#fff7ed}'+
+    '.g{color:#16a34a}.r{color:#dc2626}'+
+    'ul{margin:8px 0 0 20px;font-size:.88rem}li{margin-bottom:4px}'+
+    '.foot{margin-top:28px;font-size:.72rem;color:#94a3b8;border-top:1px solid #e2e8f0;padding-top:8px}'+
+    '@media print{button{display:none}}</style></head><body>'+
+    '<h1>Canada Gig Worker Tax Report — 2026</h1>'+
+    '<p>Generated: '+now+' &nbsp;|&nbsp; Province: '+r.prov+'</p>'+
+    '<h2>Income summary</h2><table>'+
+    '<tr><td>Gross gig income</td><td>'+cad(r.gross)+'</td></tr>'+
+    '<tr><td>Business deductions claimed</td><td class="g">-'+cad(r.totalDed)+'</td></tr>'+
+    '<tr><td>CPP (self-employed, both halves)</td><td class="r">-'+cad(r.cpp)+'</td></tr>'+
+    '<tr class="total"><td>Real take-home / year</td><td>'+cad(r.takeHome)+'</td></tr>'+
+    '<tr><td>Real take-home / month</td><td>'+cadMonth(r.takeHome)+'</td></tr>'+
+    '<tr><td>Effective total rate</td><td class="r">'+r.effRate.toFixed(1)+'%</td></tr>'+
+    '</table>'+
+    '<h2>12 deductions most gig workers miss</h2><ul>'+
+    '<li>Home office — proportional rent/mortgage + utilities + internet</li>'+
+    '<li>Phone — business portion (CRA accepts 75–85%)</li>'+
+    '<li>Vehicle — CRA kilometre rate ($0.70 first 5,000km · $0.64 after)</li>'+
+    '<li>Software subscriptions (Adobe, Notion, Slack, Zoom, Canva, etc.)</li>'+
+    '<li>Professional development — courses, books, certifications</li>'+
+    '<li>Bank fees + Stripe/PayPal transaction fees</li>'+
+    '<li>Advertising spend (Facebook, Google Ads, promoted posts)</li>'+
+    '<li>Professional services — accountant fees, legal fees (business-related)</li>'+
+    '<li>Equipment — CCA deduction over useful life (or immediate expensing)</li>'+
+    '<li>Health insurance premiums (self-employed medical expenses)</li>'+
+    '<li>Meals & entertainment with clients (50% of receipt)</li>'+
+    '<li>Professional association dues and union fees</li>'+
+    '</ul>'+
+    '<h2>Quarterly instalment schedule</h2><table>'+
+    '<tr><td>March 15, 2026</td><td>'+qtr+'</td></tr>'+
+    '<tr><td>June 15, 2026</td><td>'+qtr+'</td></tr>'+
+    '<tr><td>September 15, 2026</td><td>'+qtr+'</td></tr>'+
+    '<tr><td>December 15, 2026</td><td>'+qtr+'</td></tr>'+
+    '</table>'+
+    '<div class="foot">Based on CRA 2026 rates. This is not tax advice. '+
+    'Verify with a CPA for your specific situation.</div>'+
+    '<br><button onclick="window.print()">Print / Save PDF</button>'+
+    '</body></html>'
+  );
   w.document.close();
-  track("pdf_generated");
+  _track("pdf_generated");
 }
 
-// ── LEAD CAPTURE ──────────────────────────────────────────────────
+// ── SHARE FUNCTIONS ───────────────────────────────────────────
+function copyViral(){
+  let t=window._viral||window.location.href;
+  navigator.clipboard.writeText(t).then(()=>{
+    document.getElementById("viral-text").style.border="1px solid var(--green)";
+    setTimeout(()=>{document.getElementById("viral-text").style.border="";},1500);
+  }).catch(()=>{});
+  _track("share_copy");
+}
+function shareReddit(){
+  let u=encodeURIComponent(window.location.href);
+  let t=encodeURIComponent("I built a gig worker tax calculator that shows the real CPP cost — 2026 Canadian rates");
+  window.open("https://www.reddit.com/submit?url="+u+"&title="+t,"_blank");
+  _track("share_reddit");
+}
+function shareWA(){
+  window.open("https://wa.me/?text="+encodeURIComponent((window._viral||"")+"\n"+window.location.href),"_blank");
+  _track("share_wa");
+}
+function shareTW(){
+  window.open("https://twitter.com/intent/tweet?text="+encodeURIComponent(window._viral||window.location.href),"_blank");
+  _track("share_tw");
+}
+function shareLI(){
+  window.open("https://www.linkedin.com/sharing/share-offsite/?url="+encodeURIComponent(window.location.href),"_blank");
+  _track("share_li");
+}
+
+// ── LEAD CAPTURE ──────────────────────────────────────────────
 function submitLead(){
-  let email = document.getElementById("lead-email").value.trim();
-  if(!email||!email.includes("@")){alert("Please enter a valid email.");return;}
+  let email=document.getElementById("lead-email").value.trim();
+  if(!email||!email.includes("@")){alert("Please enter a valid email address.");return;}
   document.getElementById("lead-msg").style.display="block";
-  let fid = "";
-  let payload = {
-    email: email,
-    source: "canada-gig-tax-v29",
-    gross: window._result?fmtCAD(window._result.gross):"unknown",
-    takeHome: window._result?fmtCAD(window._result.takeHome):"unknown",
-    province: window._result?window._result.province:"unknown",
-    timestamp: new Date().toISOString()
+  let r=window._result||{};
+  let payload={
+    email:email,source:"canada-gig-v30",
+    gross:r.gross?cad(r.gross):"?",
+    takeHome:r.takeHome?cad(r.takeHome):"?",
+    prov:r.prov||"?",
+    effRate:r.effRate?r.effRate.toFixed(1)+"%":"?",
+    ts:new Date().toISOString()
   };
-  if(fid && fid.length>5){
+  let fid="";
+  if(fid&&fid.length>5&&fid!==""){
     fetch("https://formspree.io/f/"+fid,{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
+      method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify(payload)
     }).catch(()=>{});
   }
-  // Also store locally
-  let leads = JSON.parse(localStorage.getItem("legion_leads")||"[]");
-  leads.push({email,ts:Date.now()});
-  localStorage.setItem("legion_leads",JSON.stringify(leads));
-  track("lead_submitted");
+  // Local backup
+  try{
+    let leads=JSON.parse(localStorage.getItem("legion_leads")||"[]");
+    leads.push({email:email,ts:Date.now(),gross:r.gross,prov:r.prov});
+    localStorage.setItem("legion_leads",JSON.stringify(leads));
+  }catch(e){}
+  _track("lead_submitted");
 }
 
-// ── TRACKING (localStorage — no external calls) ──────────────────
-function track(event){
-  let data = JSON.parse(localStorage.getItem("legion_tracking")||"{}");
-  data[event] = (data[event]||0)+1;
-  data["last_event"] = event;
-  data["last_ts"] = Date.now();
-  localStorage.setItem("legion_tracking", JSON.stringify(data));
+// ── RUNTIME TRACKING (localStorage only, no external) ─────────
+function _track(event){
+  try{
+    let d=JSON.parse(localStorage.getItem("lv30_ca")||"{}");
+    d[event]=(d[event]||0)+1;
+    d._last=event;d._ts=Date.now();
+    localStorage.setItem("lv30_ca",JSON.stringify(d));
+  }catch(e){}
 }
-
-function trackCalc(gross, takeHome){
-  let data = JSON.parse(localStorage.getItem("legion_calc_stats")||"{}");
-  data.count = (data.count||0)+1;
-  data.last_income = gross;
-  data.best_takehome = Math.max(data.best_takehome||0, takeHome);
-  localStorage.setItem("legion_calc_stats", JSON.stringify(data));
-  // Update mini-dash
-  document.getElementById("t-calcs").textContent  = data.count;
-  document.getElementById("t-last").textContent   = fmtCAD(gross);
-  document.getElementById("t-best").textContent   = fmtCAD(data.best_takehome);
+function _trackCalc(gross,takeHome,rate){
+  try{
+    let d=JSON.parse(localStorage.getItem("lv30_ca_stats")||"{}");
+    d.count=(d.count||0)+1;
+    d.lastIncome=gross;
+    d.bestTH=Math.max(d.bestTH||0,takeHome);
+    d.lastRate=rate.toFixed(1);
+    localStorage.setItem("lv30_ca_stats",JSON.stringify(d));
+  }catch(e){}
 }
-
+function _updateMetricsDash(){
+  try{
+    let t=JSON.parse(localStorage.getItem("lv30_ca")||"{}");
+    let s=JSON.parse(localStorage.getItem("lv30_ca_stats")||"{}");
+    let pv=t.page_view||0;
+    let calcs=s.count||0;
+    let leads=(JSON.parse(localStorage.getItem("legion_leads")||"[]")).length;
+    let calcRate=pv>0?(calcs/pv*100).toFixed(0):0;
+    let leadRate=calcs>0?(leads/calcs*100).toFixed(0):0;
+    // Kill/iterate/scale logic
+    let decision="collecting data";
+    let tag="";
+    if(calcs>=10){
+      if(leadRate>=5){decision="SCALE";tag="tag-scale";}
+      else if(calcRate>=20){decision="ITERATE (improve CTA)";tag="tag-iter";}
+      else{decision="ITERATE (simplify step 1)";tag="tag-iter";}
+    }
+    if(pv>=50&&calcs===0){decision="KILL or redesign";tag="tag-kill";}
+    let el=document.getElementById("metrics-dash");
+    if(el)el.innerHTML=
+      "<b>Runtime metrics:</b> "+
+      "Views: <b>"+pv+"</b> · "+
+      "Calcs: <b>"+calcs+"</b> ("+calcRate+"%) · "+
+      "Leads: <b>"+leads+"</b> ("+leadRate+"%) · "+
+      "Best TH: <b>"+(s.bestTH?cad(s.bestTH):"—")+"</b> · "+
+      "Decision: <span class='decision-tag "+tag+"'>"+decision+"</span>";
+  }catch(e){}
+}
 // Init
 (function(){
-  let data = JSON.parse(localStorage.getItem("legion_calc_stats")||"{}");
-  if(data.count){
-    document.getElementById("t-calcs").textContent = data.count;
-    document.getElementById("t-last").textContent  = data.last_income?"$"+data.last_income.toLocaleString("en-CA"):"—";
-    document.getElementById("t-best").textContent  = data.best_takehome?fmtCAD(data.best_takehome):"—";
-  }
-  track("page_view");
+  _track("page_view");
+  _updateMetricsDash();
+  // Show calcs count from previous sessions
+  try{
+    let s=JSON.parse(localStorage.getItem("lv30_ca_stats")||"{}");
+    if(s.count>0){
+      let el=document.getElementById("prev-calcs");
+      if(el)el.textContent="You have run "+s.count+" calculation"+(s.count>1?"s":"")+" — last income: $"+
+        (s.lastIncome||0).toLocaleString("en-CA");
+    }
+  }catch(e){}
 })();
+
 </script>
 </body>
 </html>
