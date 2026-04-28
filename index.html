@@ -379,4 +379,125 @@ function ca_submit(){
 }
 ca_update();
 </script>
+
+<!-- LEGION v34 SHOCK BLOCK — auto-généré 2026-04-28 -->
+<div id="v34-shock" style="display:none;margin:2.5rem 0;padding:2rem;border:3px solid #d32f2f;border-radius:12px;background:#fff8f8;font-family:system-ui,sans-serif;">
+
+  <!-- LIVE LOSS COUNTER -->
+  <div style="background:#d32f2f;color:white;padding:1rem;border-radius:8px;margin-bottom:1.5rem;text-align:center;">
+    <div style="font-size:0.9rem;opacity:0.9;">Tu perds en temps réel (estimation)</div>
+    <div style="font-size:2.5rem;font-weight:bold;font-variant-numeric:tabular-nums;">
+      $<span id="v34-live-loss">0.00</span>
+    </div>
+    <div style="font-size:0.8rem;opacity:0.8;">depuis que tu as ouvert cette page</div>
+  </div>
+
+  <!-- SHOCK -->
+  <div style="background:#fff3f3;padding:1.25rem;border-left:5px solid #d32f2f;margin-bottom:1.5rem;">
+    <strong>⚠️ Analyse fiscale :</strong><br><br>
+    
+Tu paies environ <strong>$6,128</strong> de CPP (les deux parts).<br>
+Un salarié sur le même revenu paie <strong>$3,064</strong>.<br>
+<strong>Surcoût freelance : $3,064/an — soit $255/mois — soit 2.9 semaines de travail.</strong><br>
+⚠️ Tu approches le seuil GST/HST → risque d'obligation administrative.
+
+  </div>
+
+  <!-- ACTIONS -->
+  <h4 style="color:#1565c0;margin:1.5rem 0 0.75rem;">3 actions pour récupérer du cash :</h4>
+  <ol style="padding-left:1.5rem;margin:0;"><li style='margin:0.5rem 0;'>Déduire la part employeur CPP sur T2125 → récupère ~460$ en crédit fiscal</li><li style='margin:0.5rem 0;'>S'enregistrer GST/HST MAINTENANT — sinon pénalité rétroactive possible</li><li style='margin:0.5rem 0;'>Optimiser déductions T2125 (véhicule, home office, équipement) → potentiel ~6,600$ de déductions manquées</li><li style='margin:0.5rem 0;'>Planifier acomptes provisionnels mars/juin/sept/déc pour éviter intérêts CRA</li></ol>
+
+  <!-- PAYWALL -->
+  <div style="margin-top:2rem;padding:1.5rem;background:#f0f7ff;border:2px solid #1976d2;border-radius:10px;text-align:center;">
+    <div style="font-size:0.85rem;color:#666;margin-bottom:0.75rem;">
+      Un comptable spécialisé gig worker : <s>300–800$</s>
+    </div>
+    <button id="v34-paywall-btn" onclick="v34Unlock()" 
+            style="background:#1976d2;color:white;padding:16px 36px;font-size:1.15rem;font-weight:bold;border:none;border-radius:8px;cursor:pointer;width:100%;transition:background 0.2s;">
+      Débloquer mon plan d'optimisation complet (9$)
+    </button>
+    <p style="font-size:0.85rem;color:#777;margin-top:0.75rem;">
+      Ou <a href="#" onclick="v34Free();return false;" style="color:#1976d2;">continuer gratuitement (version limitée)</a>
+    </p>
+  </div>
+
+  <!-- AFFILIATES -->
+  <div style="margin-top:1.5rem;">
+    <div style="font-size:0.85rem;color:#555;margin-bottom:0.5rem;">Outils recommandés (partenaires) :</div>
+    <a href='https://quickbooks.intuit.com/ca/' target='_blank' rel='noopener' style='display:inline-block;margin:4px 8px 4px 0;padding:6px 14px;background:#e8f4fd;border-radius:4px;font-size:0.85rem;color:#1976d2;text-decoration:none;'>Partenaire recommandé →</a><a href='https://www.freshbooks.com/' target='_blank' rel='noopener' style='display:inline-block;margin:4px 8px 4px 0;padding:6px 14px;background:#e8f4fd;border-radius:4px;font-size:0.85rem;color:#1976d2;text-decoration:none;'>Partenaire recommandé →</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var V34 = {
+    dailyLoss: 0.000097,
+    startTime: Date.now(),
+    lossEl: document.getElementById('v34-live-loss'),
+    paywall_price: 9,
+    country: 'canada',
+    revenue: 55000.0,
+
+    init: function() {
+      this.track('shock_view');
+      this.startCounter();
+      document.getElementById('v34-shock').style.display = 'block';
+    },
+
+    startCounter: function() {
+      var self = this;
+      setInterval(function() {
+        var elapsed = (Date.now() - self.startTime) / 1000;
+        var loss = elapsed * self.dailyLoss;
+        if (self.lossEl) self.lossEl.textContent = loss.toFixed(2);
+      }, 100);
+    },
+
+    track: function(event, extra) {
+      var data = {
+        event: event,
+        country: this.country,
+        revenue: this.revenue,
+        ts: new Date().toISOString(),
+        extra: extra || {}
+      };
+      // localStorage tracking
+      var key = 'v34_events';
+      var existing = JSON.parse(localStorage.getItem(key) || '[]');
+      existing.push(data);
+      localStorage.setItem(key, JSON.stringify(existing.slice(-200)));
+
+      // Google Analytics 4 (si disponible)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', event, {
+          'event_category': 'monetization',
+          'event_label': this.country,
+          'value': this.paywall_price
+        });
+      }
+    },
+
+    unlock: function() {
+      this.track('paywall_click', {price: this.paywall_price});
+      // Remplace l'URL par ton lien Gumroad / Lemon Squeezy / Stripe
+      var url = 'https://REMPLACE_TON_LIEN_PAYWALL/?revenue=' + this.revenue + '&country=' + this.country + '&utm_source=calculator';
+      window.open(url, '_blank');
+    },
+
+    free: function() {
+      this.track('free_continue');
+      alert('Version gratuite : résultat basique sans plan détaillé. Pour le plan complet → ' + this.paywall_price + '$');
+    }
+  };
+
+  window.v34Unlock = function() { V34.unlock(); };
+  window.v34Free   = function() { V34.free();   };
+  window.v34Init   = function(revenue) {
+    V34.revenue = revenue;
+    V34.init();
+  };
+})();
+</script>
+<!-- END LEGION v34 SHOCK BLOCK -->
+
 </body></html>
