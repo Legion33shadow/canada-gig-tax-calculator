@@ -1,0 +1,16 @@
+{
+  "slug": "canada-gig-tax-calculator",
+  "country": "CA",
+  "domain": "tax",
+  "law_reference": "CRA Guide T4002 - Self-employed Business & GST/HST Rules",
+  "sources": [
+    "https://www.canada.ca/en/revenue-agency.html"
+  ],
+  "sources_health": {
+    "https://www.canada.ca/en/revenue-agency.html": {
+      "status": "The read operation timed out",
+      "reachable": false
+    }
+  },
+  "signature_payload": "0b96731bfab2eda7dc7e49cc9ee0e338df415fabb846c47ae6ef6ebb821c963b"
+}
