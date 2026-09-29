@@ -1,0 +1,12 @@
+{
+  "slug": "canada-gig-tax-calculator",
+  "type": "calculator",
+  "country": "CA",
+  "category": "tax",
+  "official_sources": [
+    "https://www.canada.ca/en/revenue-agency.html"
+  ],
+  "claim_state": "method_unverified",
+  "phoenix_ready": false,
+  "limitations": "Canadian gig tax depends on province, deductions and registration status."
+}
